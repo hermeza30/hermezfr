@@ -8,6 +8,7 @@ import { PAGES_ROUTES } from './pages.routes';
 
 import {FormsModule, ReactiveFormsModule} from '@angular/forms'
 import { PagesComponent } from './pages.component';
+import { ComponentsModule } from '../components/components.module';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { PagesComponent } from './pages.component';
     SharedModule,
     PAGES_ROUTES,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ComponentsModule,
 
   ],
   exports:[UsuarioComponent,PoliciaComponent,DashboardComponent,PagesComponent]
