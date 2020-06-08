@@ -1,122 +1,249 @@
 <div class="row">
-   
-        
 
-                <div class="col-md-6">
-                 
-                        <h3 class="box-title m-b-0">Torso</h3>
-                        <br>
-                        <form class="form-horizontal">
-                            <div class="form-group row">
-                                <label for="espalda" class="col-sm-3 text-right control-label col-form-label">Espalda</label>
-                                <div class="col-sm-6">
-                                    <input type="text" class="form-control" id="espalda" placeholder="espalda">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="pecho" class="col-sm-3 text-right control-label col-form-label">Pecho</label>
-                                <div class="col-sm-6">
-                                    <input type="text" class="form-control" id="pecho" placeholder="pecho">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                               <label for="largomanga" class="col-sm-3 text-right control-label col-form-label">Largo Manga</label>
-                               <div class="col-sm-6">
-                                   <input type="text" class="form-control" id="largomanga" placeholder="largo manga">
-                               </div>
-                           </div>
-                           <div class="form-group row">
-                               <label for="cuello" class="col-sm-3 text-right control-label col-form-label">Cuello</label>
-                               <div class="col-sm-6">
-                                   <input type="text" class="form-control" id="cuello" placeholder="cuello">
-                               </div>
-                           </div>
-                           <div class="form-group row">
-                               <label for="cinturapanza" class="col-sm-3 text-right control-label col-form-label">Cintura panza</label>
-                               <div class="col-sm-6">
-                                   <input type="text" class="form-control" id="cinturapanza" placeholder="cintura panza">
-                               </div>
-                           </div>
-                           <div class="form-group row">
-                               <label for="largotorso" class="col-sm-3 text-right control-label col-form-label">Largo torso</label>
-                               <div class="col-sm-6">
-                                   <input type="text" class="form-control" id="largotorso" placeholder="largo torso">
-                               </div>
-                           </div>
-                        </form>
-                  
-                </div>
-                <div class="col-md-6">
-                 
-                   <h3 class="box-title m-b-0">Pierna</h3>
-                   <br>
-                   <form class="form-horizontal">
-                       <div class="form-group row">
-                           <label for="cintura" class="col-sm-3 text-right control-label col-form-label">Cintura</label>
-                           <div class="col-sm-6">
-                               <input type="text" class="form-control" id="cintura" placeholder="cintura">
-                           </div>
-                       </div>
-                       <div class="form-group row">
-                           <label for="cadera" class="col-sm-3 text-right control-label col-form-label">Cadera</label>
-                           <div class="col-sm-6">
-                               <input type="text" class="form-control" id="cadera" placeholder="cadera">
-                           </div>
-                       </div>
-                       <div class="form-group row">
-                           <label for="anchopierna" class="col-sm-3 text-right control-label col-form-label">Ancho Pierna</label>
-                           <div class="col-sm-6">
-                               <input type="text" class="form-control" id="anchopierna" placeholder="ancho pierna">
-                           </div>
-                       </div>
-                       <div class="form-group row">
-                           <label for="tiro" class="col-sm-3 text-right control-label col-form-label">Tiro</label>
-                           <div class="col-sm-6">
-                               <input type="text" class="form-control" id="tiro" placeholder="tiro">
-                           </div>
-                       </div>
-                       <div class="form-group row">
-                           <label for="largopierna" class="col-sm-3 text-right control-label col-form-label">Largo Pierna</label>
-                           <div class="col-sm-6">
-                               <input type="text" class="form-control" id="largopierna" placeholder="largo pierna">
-                           </div>
-                       </div>
-                       <div class="form-group row">
-                           <label for="rodilla" class="col-sm-3 text-right control-label col-form-label">Altura rodilla</label>
-                           <div class="col-sm-6">
-                               <input type="text" class="form-control" id="rodilla" placeholder="altura rodilla">
-                           </div>
-                       </div>
-                       <div class="form-group row">
-                           <label for="pantorrilla" class="col-sm-3 text-right control-label col-form-label">Pantorrilla</label>
-                           <div class="col-sm-6">
-                               <input type="text" class="form-control" id="pantorrilla" placeholder="pantorrilla">
-                           </div>
-                       </div>
-                   </form>
-             
-                </div>
-            
-           
-     
-  
-</div>
-<div class="row">
-    <div class="col-md-12">
-        <form class="form-horizontal">
+    <div class="col-md-6">
+    <div class="card">
+        <div class="card-body">
+          <h3 class="box-title m-b-0">Torso</h3>
+          <br />
+          <form [formGroup]="form" class="form-horizontal">
             <div class="form-group row">
-                <label for="observacion" class="col-sm-3 control-label col-form-label">Observaciones</label>
-                 <input type="text" class="form-control" id="observacion" placeholder="observación">
+              <label
+                for="espalda"
+                class="col-sm-3 text-right control-label col-form-label"
+                >Espalda</label
+              >
+              <div class="col-sm-6">
+                <input
+                  formControlName="espalda"
+                  type="text"
+                  class="form-control"
+                  id="espalda"
+                  placeholder="espalda"
+                />
+              </div>
             </div>
-        </form>
+            <div class="form-group row">
+              <label
+                for="pecho"
+                class="col-sm-3 text-right control-label col-form-label"
+                >Pecho</label
+              >
+              <div class="col-sm-6">
+                <input
+                  formControlName="pecho"
+                  type="text"
+                  class="form-control"
+                  id="pecho"
+                  placeholder="pecho"
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label
+                for="largomanga"
+                class="col-sm-3 text-right control-label col-form-label"
+                >Largo Manga</label
+              >
+              <div class="col-sm-6">
+                <input
+                  formControlName="largomanga"
+                  type="text"
+                  class="form-control"
+                  id="largomanga"
+                  placeholder="largo manga"
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label
+                for="cuello"
+                class="col-sm-3 text-right control-label col-form-label"
+                >Cuello</label
+              >
+              <div class="col-sm-6">
+                <input
+                  formControlName="cuello"
+                  type="text"
+                  class="form-control"
+                  id="cuello"
+                  placeholder="cuello"
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label
+                for="cinturapanza"
+                class="col-sm-3 text-right control-label col-form-label"
+                >Cintura panza</label
+              >
+              <div class="col-sm-6">
+                <input
+                  formControlName="cinturapanza"
+                  type="text"
+                  class="form-control"
+                  id="cinturapanza"
+                  placeholder="cintura panza"
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label
+                for="largotorso"
+                class="col-sm-3 text-right control-label col-form-label"
+                >Largo torso</label
+              >
+              <div class="col-sm-6">
+                <input
+                  formControlName="largotorso"
+                  type="text"
+                  class="form-control"
+                  id="largotorso"
+                  placeholder="largo torso"
+                />
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-md-6">
+    <div class="card">
+        <div class="card-body">
+          <h3 class="box-title m-b-0">Pierna</h3>
+          <br />
+          <form [formGroup]="form" class="form-horizontal">
+            <div class="form-group row">
+              <label
+                for="cintura"
+                class="col-sm-3 text-right control-label col-form-label"
+                >Cintura</label
+              >
+              <div class="col-sm-6">
+                <input
+                  formControlName="cintura"
+                  type="text"
+                  class="form-control"
+                  id="cintura"
+                  placeholder="cintura"
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label
+                for="cadera"
+                class="col-sm-3 text-right control-label col-form-label"
+                >Cadera</label
+              >
+              <div class="col-sm-6">
+                <input
+                  formControlName="cadera"
+                  type="text"
+                  class="form-control"
+                  id="cadera"
+                  placeholder="cadera"
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label
+                for="anchopierna"
+                class="col-sm-3 text-right control-label col-form-label"
+                >Ancho Pierna</label
+              >
+              <div class="col-sm-6">
+                <input
+                  formControlName="anchopierna"
+                  type="text"
+                  class="form-control"
+                  id="anchopierna"
+                  placeholder="ancho pierna"
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label
+                for="tiro"
+                class="col-sm-3 text-right control-label col-form-label"
+                >Tiro</label
+              >
+              <div class="col-sm-6">
+                <input
+                  formControlName="tiro"
+                  type="text"
+                  class="form-control"
+                  id="tiro"
+                  placeholder="tiro"
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label
+                for="largopierna"
+                class="col-sm-3 text-right control-label col-form-label"
+                >Largo Pierna</label
+              >
+              <div class="col-sm-6">
+                <input
+                  formControlName="largopierna"
+                  type="text"
+                  class="form-control"
+                  id="largopierna"
+                  placeholder="largo pierna"
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label
+                for="rodilla"
+                class="col-sm-3 text-right control-label col-form-label"
+                >Altura rodilla</label
+              >
+              <div class="col-sm-6">
+                <input
+                  formControlName="alturarodilla"
+                  type="text"
+                  class="form-control"
+                  id="rodilla"
+                  placeholder="altura rodilla"
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label
+                for="pantorrilla"
+                class="col-sm-3 text-right control-label col-form-label"
+                >Pantorrilla</label
+              >
+              <div class="col-sm-6">
+                <input
+                  formControlName="pantorrilla"
+                  type="text"
+                  class="form-control"
+                  id="pantorrilla"
+                  placeholder="pantorrilla"
+                />
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
 </div>
-<div class="row">
-    <div class="col-md-12">
-        <form class="form-horizontal">
-            <div class="form-group row float-md-right">
-                <button class="btn btn-primary">Registrar</button>
-            </div>
-        </form>
+
+<div class="col-md-12">
+  <form [formGroup]="form" class="form-horizontal">
+    <div class="form-group row">
+      <label for="observacion" class="col-sm-3 control-label col-form-label"
+        ><strong>Observación</strong></label
+      >
+      <input
+        formControlName="observacion"
+        type="text"
+        class="form-control"
+        id="observacion"
+        placeholder="observación"
+      />
     </div>
+  </form>
 </div>

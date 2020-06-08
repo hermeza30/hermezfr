@@ -9,10 +9,13 @@ import { PAGES_ROUTES } from './pages.routes';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms'
 import { PagesComponent } from './pages.component';
 import { ComponentsModule } from '../components/components.module';
+import { HttpClientModule } from '@angular/common/http';
+import { ModificarPoliciaComponent } from './policia/modificar-policia.component';
+import { VerPoliciaComponent } from './policia/ver-policia.component';
 
 
 @NgModule({
-  declarations: [UsuarioComponent, PoliciaComponent, DashboardComponent,PagesComponent],
+  declarations: [UsuarioComponent, PoliciaComponent, DashboardComponent,PagesComponent, ModificarPoliciaComponent, VerPoliciaComponent],
   imports: [
     CommonModule,
     SharedModule,
@@ -20,8 +23,9 @@ import { ComponentsModule } from '../components/components.module';
     FormsModule,
     ReactiveFormsModule,
     ComponentsModule,
+    HttpClientModule
 
   ],
-  exports:[UsuarioComponent,PoliciaComponent,DashboardComponent,PagesComponent]
+  exports:[UsuarioComponent,PoliciaComponent,DashboardComponent,PagesComponent,ModificarPoliciaComponent,VerPoliciaComponent]
 })
 export class PagesModule { }

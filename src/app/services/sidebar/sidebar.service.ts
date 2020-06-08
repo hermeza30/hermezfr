@@ -8,8 +8,8 @@ public menu:any=[{
   titulo:'Principal',
   icono:'mdi mdi-gauge',
   submenu:[
-    {titulo:"Dashboard",url:'/dashboard'},
-    {titulo:"Policias",url:'/policia'},
+    {titulo:"Buscar",url:'/dashboard'},
+    {titulo:"Registrar policia",url:'/policia'},
     {titulo:"Usuarios",url:'/usuario'}
 
   ]

@@ -9,6 +9,7 @@
        </div>
     </div> 
 </div>
+<br>
 <!-- INPUT GROUP BUSQUEDA-->
 <div class="row">
   <div class="col-lg-4">
@@ -27,11 +28,14 @@
   </div>
   <div class="col-lg-4">
     <div class="input-group">
-      <button class="btn btn-primary">Buscar</button>
+      <label for="jerarquia" class="control-label">Jerarquía: </label>
+
+      <input type="text" id="jerarquia" class="form-control" name="jerarquia" />
     </div>
   </div>
+
 </div>
-<br>
+
 <br>
 <!-- END INPUT GROUP -->
 
@@ -42,30 +46,22 @@
       <table class="table color-table primary-table">
         <thead>
           <tr>
-            <th>#</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Username</th>
+            <th>Nombre</th>
+            <th>Teléfono</th>
+            <th>Jerarquía</th>
+            <th>Actualizar</th>
+            <th>ver</th>
+            <th>Eliminar</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody *ngFor="let p of policias">
           <tr>
-            <td>1</td>
-            <td>Nigam</td>
-            <td>Eichmann</td>
-            <td>@Sonu</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Deshmukh</td>
-            <td>Prohaska</td>
-            <td>@Genelia</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Roshan</td>
-            <td>Rogahn</td>
-            <td>@Hritik</td>
+            <td>{{p.persona.nombre}}</td>
+            <td>{{p.persona.telefono}}</td>
+            <td>{{p.jerarquia}}</td>
+            <td><button [routerLink]="['/modificar', p._id]" class="btn btn-dark"><i class="fa fa-edit"></i> modificar</button></td>
+            <td><button [routerLink]="['/ver', p._id]"  class="btn btn-dark"><i class="fa fa-search"></i> ver</button></td>
+            <td><button class="btn btn-danger"> <i class="fa fa-remove"></i> eliminar</button></td>
           </tr>
         </tbody>
       </table>

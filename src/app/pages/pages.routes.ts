@@ -3,12 +3,19 @@ import { Routes,RouterModule } from '@angular/router';
 import { UsuarioComponent } from './usuario/usuario.component';
 import { PoliciaComponent } from './policia/policia.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { LoginguardGuard } from '../services/service.index';
+import { ModificarPoliciaComponent } from './policia/modificar-policia.component';
+import { VerPoliciaComponent } from './policia/ver-policia.component';
 
 const pagesRoutes:Routes=[
-    {path:'',component:PagesComponent,
+    {path:'',component:PagesComponent,canActivate:[LoginguardGuard],
 children:[
     {path:'usuario',component:UsuarioComponent,data:{titulo:"Usuarios"}},
     {path:'policia',component:PoliciaComponent,data:{titulo:"Policias"}},
+    {path:'modificar/:id',component:ModificarPoliciaComponent,data:{titulo:"Modificar Policia"}},
+    {path:'ver/:id',component:VerPoliciaComponent,data:{titulo:"Ver Policia"}},
+
+
     {path:'dashboard',component:DashboardComponent,data:{titulo:"Dashboard"}},
 
 ]}

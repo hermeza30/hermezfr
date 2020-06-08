@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { Policia } from '../../models/policia.model';
 
 @Component({
   selector: 'app-busqueda',
@@ -8,7 +9,7 @@ import { Router } from '@angular/router';
   ]
 })
 export class BusquedaComponent implements OnInit {
-
+  @Input('policias') policias:Policia[];
   constructor(public router:Router) { }
 
   ngOnInit(): void {
@@ -16,4 +17,5 @@ export class BusquedaComponent implements OnInit {
   irAcrear(){
     this.router.navigate(['/policia']);
   }
+
 }
