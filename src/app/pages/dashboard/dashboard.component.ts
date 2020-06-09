@@ -16,7 +16,19 @@ export class DashboardComponent implements OnInit {
     this.cargarPolicias();
   }
   cargarPolicias(){
-  this._policiasServices.consultarPolicias().subscribe(res=>{console.log(res);this.policias=res;console.log(this.policias)});
+  this._policiasServices.consultarPolicias().subscribe(res=>{
+    this.policias=res;});
 }
+busquedaGeneral(key:[string,string]){
+  if(key[0].length>0){
+    this._policiasServices.busquedaGeneral(key).subscribe(res=>{
+      this.policias=res;
+    });
+  }else{
+    this.cargarPolicias();
+  }
+}
+
+
 
 }

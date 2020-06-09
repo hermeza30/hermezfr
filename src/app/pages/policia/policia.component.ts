@@ -5,7 +5,6 @@ import {
   PoliciaService,
   ComunicationComponentsService,
 } from '../../services/service.index';
-import { Persona } from '../../models/persona.model';
 
 @Component({
   selector: 'app-policia',
@@ -36,18 +35,15 @@ export class PoliciaComponent implements OnInit {
    this._policiaService.registrarPolicia(this.policia).subscribe();
   }
   crearPolicia():Policia {
-    let persona = new Persona(
-      this.formPersona.value.nombre,
-      this.formPersona.value.telefono,
-      this.formPersona.value.cuil,
-      this.formPersona.value.direccion
-    );
 
     let policia = new Policia(
       null,
-      persona,
-      this.formPersona.value.jerarquia,
-      this.formPersona.value.estado,
+      this.formPersona.value.nombre,
+      this.formPersona.value.telefono,
+      this.formPersona.value.cuil,
+      this.formPersona.value.direccion,
+      this.formBody.value.jerarquia,
+      true,
       this.formBody.value.cuerpo,
       this.formBody.value.espalda,
       this.formBody.value.pecho,
@@ -66,9 +62,7 @@ export class PoliciaComponent implements OnInit {
     );
     return policia;
   }
-  formulariosValidos(){
 
-  }
   
   cargarFormPersona(event: FormGroup) {
     this.formPersona = event;

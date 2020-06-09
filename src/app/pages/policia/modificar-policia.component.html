@@ -1,1 +1,7 @@
-<p>modificar-policia works!</p>
+<app-persona *ngIf="policia" [persona]="policia"  (formPersona)="cargarFormPersona($event)"></app-persona>
+<app-body *ngIf="policia" [policiacuerpo]="policia" (formBody)="cargarFormBody($event)"></app-body>
+<div class="float-md-right">
+  <button type="button" class="btn btn-primary" (click)="actualizar()">Actualizar</button>
+  <button type="button" class="btn btn-dark" (click)="volver()">Volver</button>
+</div>
+

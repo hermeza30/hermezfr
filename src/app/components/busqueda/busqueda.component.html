@@ -12,27 +12,30 @@
 <br>
 <!-- INPUT GROUP BUSQUEDA-->
 <div class="row">
-  <div class="col-lg-4">
-    <div class="input-group">
-      <label for="nombre" class="control-label">Nombre: </label>
 
-      <input type="text" id="nombre" class="form-control" name="nombre" />
-    </div>
-  </div>
-  <div class="col-lg-4">
-    <div class="input-group">
-      <label for="telefono" class="control-label">Teléfono: </label>
 
-      <input type="text" id="telefono" class="form-control" name="telefono" />
+    <div class="col-lg-4">
+      <div class="input-group">
+        <label for="nombre" class="control-label">Nombre: </label>
+  
+        <input #nombre (keyup)="buscar(nombre.value,nombre.name)" type="text" id="nombre" class="form-control" name="nombre" />
+      </div>
     </div>
-  </div>
-  <div class="col-lg-4">
-    <div class="input-group">
-      <label for="jerarquia" class="control-label">Jerarquía: </label>
+    <div class="col-lg-4">
+      <div class="input-group">
+        <label for="telefono" class="control-label">Teléfono: </label>
+  
+        <input #telefono (keyup)="buscar(telefono.value,telefono.name)" type="text" id="telefono" class="form-control" name="telefono" />
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="input-group">
+        <label for="jerarquia" class="control-label">Jerarquía: </label>
+  
+        <input #jerarquia (keyup)="buscar(jerarquia.value,jerarquia.name)" type="text" id="jerarquia" class="form-control" name="jerarquia" />
+      </div>
+    </div>
 
-      <input type="text" id="jerarquia" class="form-control" name="jerarquia" />
-    </div>
-  </div>
 
 </div>
 
@@ -56,12 +59,12 @@
         </thead>
         <tbody *ngFor="let p of policias">
           <tr>
-            <td>{{p.persona.nombre}}</td>
-            <td>{{p.persona.telefono}}</td>
+            <td>{{p.nombre}}</td>
+            <td>{{p.telefono}}</td>
             <td>{{p.jerarquia}}</td>
             <td><button [routerLink]="['/modificar', p._id]" class="btn btn-dark"><i class="fa fa-edit"></i> modificar</button></td>
             <td><button [routerLink]="['/ver', p._id]"  class="btn btn-dark"><i class="fa fa-search"></i> ver</button></td>
-            <td><button class="btn btn-danger"> <i class="fa fa-remove"></i> eliminar</button></td>
+            <td><button (click)="eliminar(p._id)" class="btn btn-danger"> <i class="fa fa-remove"></i> eliminar</button></td>
           </tr>
         </tbody>
       </table>

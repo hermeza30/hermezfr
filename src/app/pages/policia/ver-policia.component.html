@@ -1,1 +1,6 @@
-<p>ver-policia works!</p>
+<app-persona *ngIf="policia" [persona]="policia"  [ver]="ver"></app-persona>
+<app-body *ngIf="policia" [policiacuerpo]="policia"  [ver]="ver"></app-body>
+
+<div class="float-md-right">
+    <button type="button" class="btn btn-dark" (click)="volver()">Volver</button>
+  </div>

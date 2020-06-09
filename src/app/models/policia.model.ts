@@ -1,5 +1,5 @@
 import { Persona } from './persona.model';
-export class Policia {
+export class Policia extends Persona {
   public _id:string;
   public persona:Persona;
   public jerarquia: string;
@@ -22,7 +22,10 @@ export class Policia {
 
   constructor(
     _id:string,
-    _persona:Persona,
+    _nombre:string,
+    _telefono:string,
+    _cuil:string,
+    _direccion:string,
     _jerarquia:string,
     _estado?: boolean,
     _cuerpo?: string,
@@ -41,8 +44,8 @@ export class Policia {
     _pantorrilla?: string,
     _observacion?: string
   ) {
+    super(_nombre,_telefono,_cuil,_direccion);
     this._id=_id;
-    this.persona=_persona;  
     this.jerarquia = _jerarquia;
     this.estado = _estado;
     this.cuerpo = _cuerpo;

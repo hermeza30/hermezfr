@@ -11,9 +11,9 @@ const pagesRoutes:Routes=[
     {path:'',component:PagesComponent,canActivate:[LoginguardGuard],
 children:[
     {path:'usuario',component:UsuarioComponent,data:{titulo:"Usuarios"}},
-    {path:'policia',component:PoliciaComponent,data:{titulo:"Policias"}},
-    {path:'modificar/:id',component:ModificarPoliciaComponent,data:{titulo:"Modificar Policia"}},
-    {path:'ver/:id',component:VerPoliciaComponent,data:{titulo:"Ver Policia"}},
+    {path:'policia',component:PoliciaComponent,data:{titulo:"Registrar Policía"}},
+    {path:'modificar/:id',component:ModificarPoliciaComponent,data:{titulo:"Modificar Policía"}},
+    {path:'ver/:id',component:VerPoliciaComponent,data:{titulo:"Ver Policía"}},
 
 
     {path:'dashboard',component:DashboardComponent,data:{titulo:"Dashboard"}},

@@ -5,12 +5,20 @@ import { Injectable } from '@angular/core';
 })
 export class SidebarService {
 public menu:any=[{
-  titulo:'Principal',
-  icono:'mdi mdi-gauge',
+  titulo:'Policías',
+  icono:'mdi mdi-checkbox-blank-circle',
+  src:'assets/images/users/policia-fa.jpg',
   submenu:[
     {titulo:"Buscar",url:'/dashboard'},
-    {titulo:"Registrar policia",url:'/policia'},
-    {titulo:"Usuarios",url:'/usuario'}
+    {titulo:"Registrar",url:'/policia'},
+
+  ]
+},{
+  titulo:'Pedidos',
+  icono:'mdi mdi-plus-circle-outline',
+  submenu:[
+    {titulo:"Buscar",url:'/dashboard'},
+    {titulo:"Registrar",url:'/policia'},
 
   ]
 }]

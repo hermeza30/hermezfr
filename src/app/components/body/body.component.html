@@ -3,9 +3,25 @@
     <div class="col-md-6">
     <div class="card">
         <div class="card-body">
-          <h3 class="box-title m-b-0">Torso</h3>
+          <h3 class="box-title m-b-0">Jeraquía - Torso</h3>
           <br />
           <form [formGroup]="form" class="form-horizontal">
+            <div class="form-group row">
+              <label
+                for="espalda"
+                class="col-sm-3 text-right control-label col-form-label"
+                ><strong>Jerarquía</strong> </label
+              >
+              <div class="col-sm-6">
+                <input
+                  formControlName="jerarquia"
+                  type="text"
+                  class="form-control"
+                  id="jerarquia"
+                  placeholder="jerarquia"
+                />
+              </div>
+            </div>
             <div class="form-group row">
               <label
                 for="espalda"
@@ -231,19 +247,21 @@
     </div>
 </div>
 
-<div class="col-md-12">
-  <form [formGroup]="form" class="form-horizontal">
-    <div class="form-group row">
-      <label for="observacion" class="col-sm-3 control-label col-form-label"
-        ><strong>Observación</strong></label
-      >
-      <input
-        formControlName="observacion"
-        type="text"
-        class="form-control"
-        id="observacion"
-        placeholder="observación"
-      />
-    </div>
-  </form>
+<div class="row">
+  <div class="col-md-12">
+    <form [formGroup]="form" class="form-horizontal">
+      <div class="form-group row">
+        <label for="observacion" class="col-sm-3 control-label col-form-label"
+          ><strong>Observación</strong></label
+        >
+        <input
+          formControlName="observacion"
+          type="text"
+          class="form-control"
+          id="observacion"
+          placeholder="observación"
+        />
+      </div>
+    </form>
+  </div>
 </div>
