@@ -12,10 +12,12 @@ import { ComponentsModule } from '../components/components.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ModificarPoliciaComponent } from './policia/modificar-policia.component';
 import { VerPoliciaComponent } from './policia/ver-policia.component';
+import { PedidosComponent } from './pedidos/pedidos.component';
+import { BuscarPedidosComponent } from './pedidos/buscar-pedidos.component';
 
 
 @NgModule({
-  declarations: [UsuarioComponent, PoliciaComponent, DashboardComponent,PagesComponent, ModificarPoliciaComponent, VerPoliciaComponent],
+  declarations: [UsuarioComponent, PoliciaComponent, DashboardComponent,PagesComponent, ModificarPoliciaComponent, VerPoliciaComponent, PedidosComponent, BuscarPedidosComponent],
   imports: [
     CommonModule,
     SharedModule,
@@ -26,6 +28,6 @@ import { VerPoliciaComponent } from './policia/ver-policia.component';
     HttpClientModule
 
   ],
-  exports:[UsuarioComponent,PoliciaComponent,DashboardComponent,PagesComponent,ModificarPoliciaComponent,VerPoliciaComponent]
+  exports:[UsuarioComponent,PoliciaComponent,DashboardComponent,PagesComponent,ModificarPoliciaComponent,VerPoliciaComponent,PedidosComponent]
 })
 export class PagesModule { }

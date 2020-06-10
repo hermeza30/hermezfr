@@ -1,0 +1,80 @@
+
+<form #f="ngForm">
+
+    <div class="form-body">
+        <h3 class="box-title m-t-40">Agregar Cliente</h3>
+        <div class="row p-t-20">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label">Nombre cliente:</label>
+                    <input [ngModel]="nombre"  type="text" name="nombre" class="form-control" placeholder="nombre">
+                   </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label">Telefono:</label>
+                    <input [(ngModel)]="telefono" type="text" name="telefono" class="form-control" placeholder="telefono">
+                   </div>
+            </div>
+            <div class="col-md-12">
+                <div class="float-right">
+                    <button type="button" (click)="buscar(f.value)" class="btn btn-secondary"> <i class="fa fa-search"></i> Buscar</button>
+                </div>
+            </div>
+        </div>
+        <!--/row-->
+        <div *ngIf="policias" class="row">
+            <div class="col-8">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title"></h3>
+                        <table class="table color-table inverse-table">
+                            <thead >
+                                <th>Nombre</th>
+                                <th>Jerarquía</th>
+                                <th>Teléfono</th>
+                                <th>Ver</th>
+                                <th>Seleccionar</th>
+                                <th></th>
+                            </thead>
+                            <tbody >
+                                <tr  *ngFor="let p of policias">
+                                    <td>{{p.nombre}}</td>
+                                    <td>{{p.jerarquia}}</td>
+                                    <td>{{p.telefono}}</td>
+                                    <td><button type="button" class="btn btn-info"><i class="fa fa-search"></i>    Ver</button></td>
+                                    <td> 
+                                    <button type="button" (click)="agregarCliente(p)" class="btn btn-warning"> <i class="fa fa-plus"></i> Agregar</button>
+                                      </td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </div>
+    
+    <div *ngIf="policia" class="form-body">
+        <h4>Cliente</h4>
+        <div class="row">
+            <div class="col">
+                    <strong> Nombre: {{policia.nombre}}</strong>
+            </div>
+            <br>
+        </div>
+        <div class="row">
+            <div class="col">
+                    <strong> Teléfono: {{policia.telefono}}</strong>
+             </div>
+            <br>
+    
+        </div>
+        <div class="row">
+            <div class="col">
+                    <strong> Jerarquia:{{policia.jerarquia}}</strong>
+             </div>
+        </div>
+    </div>
+</form>

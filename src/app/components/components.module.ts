@@ -6,14 +6,16 @@ import { GaribaldinaComponent } from './garibaldina/garibaldina.component';
 import { BodyComponent } from './body/body.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { AgregarClienteComponent } from './agregar-cliente/agregar-cliente/agregar-cliente.component';
+import { AgregarProductoComponent } from './agregar-producto/agregar-producto/agregar-producto.component';
 
 
 
 @NgModule({
-  declarations: [PersonaComponent, BusquedaComponent,GaribaldinaComponent, BodyComponent],
+  declarations: [PersonaComponent, BusquedaComponent,GaribaldinaComponent, BodyComponent, AgregarClienteComponent, AgregarProductoComponent],
   imports: [
     CommonModule,FormsModule,ReactiveFormsModule,RouterModule 
   ],
-  exports:[PersonaComponent,BusquedaComponent,GaribaldinaComponent,BodyComponent]
+  exports:[PersonaComponent,BusquedaComponent,GaribaldinaComponent,BodyComponent,AgregarProductoComponent,AgregarClienteComponent]
 })
 export class ComponentsModule { }

@@ -1,0 +1,69 @@
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title">Buscar Pedidos</h3>
+                <div class="form-body">
+                    <div class="row p-t-20">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">Nombre cliente:</label>
+                                <input type="text" name="nombre" class="form-control" placeholder="nombre">
+                               </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">Producto</label>
+                                <select name="producto" class="form-control custom-select">
+                                    <option value="">Garibaldina</option>
+                                    <option value="">Pantalon</option>
+                                    <option value="">Campera</option>
+                                    <option value="">Remera</option>
+                                </select>
+                                </div>
+                        </div>
+                    </div>
+                    <!--/row-->
+                    <div class="row">
+               
+                        <!--/span-->
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">Fecha de pedido</label>
+                                <input name="fecha" type="date" class="form-control" placeholder="dd/mm/yyyy">
+                            </div>
+                        </div>
+                        <!--/span-->
+                    </div>
+
+
+                </div>
+                <div class="form-actions">
+                    <div class="float-right">
+                        <button type="submit" class="btn btn-success"> <i class="fa fa-search"></i> Buscar</button>
+                    </div>
+                </div>
+                <table class="table table-hover primary-table">
+                    <thead class="thead-dark">
+                        <th>Descripcion</th>
+                        <th>Policia</th>
+                        <th>Detalle</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Cammisa,Pantalon,Remera</td>
+                            <td>Oficial Godines</td>
+                            <td><button type="button" class="btn btn-dark"> Ver</button></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>  

@@ -6,12 +6,17 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginguardGuard } from '../services/service.index';
 import { ModificarPoliciaComponent } from './policia/modificar-policia.component';
 import { VerPoliciaComponent } from './policia/ver-policia.component';
+import { AdminGuard } from '../services/service.index';
+import { PedidosComponent } from './pedidos/pedidos.component';
+import { BuscarPedidosComponent } from './pedidos/buscar-pedidos.component';
 
 const pagesRoutes:Routes=[
     {path:'',component:PagesComponent,canActivate:[LoginguardGuard],
 children:[
-    {path:'usuario',component:UsuarioComponent,data:{titulo:"Usuarios"}},
+    {path:'usuario',component:UsuarioComponent,canActivate:[AdminGuard],data:{titulo:"Usuarios"}},
     {path:'policia',component:PoliciaComponent,data:{titulo:"Registrar Policía"}},
+    {path:'pedido',component:PedidosComponent,data:{titulo:"Pedidos"}},
+    {path:'buscar-pedido',component:BuscarPedidosComponent,data:{titulo:"Buscar Pedidos"}},
     {path:'modificar/:id',component:ModificarPoliciaComponent,data:{titulo:"Modificar Policía"}},
     {path:'ver/:id',component:VerPoliciaComponent,data:{titulo:"Ver Policía"}},
 

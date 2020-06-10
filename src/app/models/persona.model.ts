@@ -1,4 +1,4 @@
-export class  Persona{
+export abstract class  Persona{
 public nombre:string;
 public telefono:string;
 public cuil:string;

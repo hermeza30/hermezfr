@@ -17,8 +17,8 @@ public menu:any=[{
   titulo:'Pedidos',
   icono:'mdi mdi-plus-circle-outline',
   submenu:[
-    {titulo:"Buscar",url:'/dashboard'},
-    {titulo:"Registrar",url:'/policia'},
+    {titulo:"Buscar",url:'/buscar-pedido'},
+    {titulo:"Registrar",url:'/pedido'},
 
   ]
 }]

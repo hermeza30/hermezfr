@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import{SidebarService,
-  PoliciaService,
-  UsuarioService,LoginguardGuard} from './service.index';
+  PoliciaService,PedidosService,
+  UsuarioService,LoginguardGuard,AdminGuard} from './service.index';
 
 
 @NgModule({
@@ -11,6 +11,6 @@ import{SidebarService,
     CommonModule,
     
   ],
-  providers:[SidebarService,PoliciaService,UsuarioService,LoginguardGuard]
+  providers:[SidebarService,PoliciaService,UsuarioService,LoginguardGuard,AdminGuard,PedidosService]
 })
 export class ServiceModule { }

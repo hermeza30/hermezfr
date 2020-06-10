@@ -1,0 +1,73 @@
+<form #f="ngForm">
+    <div class="form-body">
+        <h3 class="box-title m-t-40">Agregar Producto</h3>
+        <div class="row p-t-20">
+   
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label">Producto</label>
+                    <select (change)="agregarCategoria($event.target.value)"  name="categoria" class="form-control">
+                        <option value="">Seleccione</option>
+                        <option *ngFor="let c of categorias" [value]="c._id">{{c.nombre}}</option>
+                    </select>
+                    </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label">Talle:</label>
+                    <input  [(ngModel)]="talle"  type="text" name="talle" class="form-control" placeholder="talle">
+                   </div>
+            </div>
+        </div>
+        <!--/row-->
+        <div class="row  p-t-20">
+   
+            <!--/span-->
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label class="control-label">Descripción</label>
+                    <input  [(ngModel)]="descripcion"  name="descripcion" type="text" class="form-control" placeholder="Ingrese descripción del pedido">
+                </div>
+            </div>
+            <!--/span-->
+        </div>
+
+
+        <div class="row  p-t-20">
+            <div class="col-md-12">
+                <div class="float-right">
+                    <button type="button" (click)="agregarProducto()" class="btn btn-success"> <i class="fa fa-plus"></i> Agregar</button>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="productos.length" class="row  p-t-20">
+            <div class="col-8">
+                <table class="table color-table inverse-table">
+                    <thead>
+                        <th>Nombre</th>
+                        <th>Talle</th>
+                        <th>Precio</th>
+                        <th>Detalle</th>
+                        <th>Eliminar</th>
+                        <th></th>
+                        <th></th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let c of productos">
+                            <td>{{c.nombre}}</td>
+                            <td>{{c.talle}}</td>
+                            <td>{{c.precio}}</td>
+                            <td>{{c.descripcion}}</td>
+                            <td><button (click)="removerProducto(c)" type="button" class="btn btn-danger"><i class="fa fa-trash"></i> Eliminar</button></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>                
+    </div>
+
+</form>
+               
