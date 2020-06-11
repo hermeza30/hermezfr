@@ -20,7 +20,7 @@ export class PedidosService {
 
         map(
           (res:any)=>{
-            return res.producto;
+            return res.categoria;
           }
         ),
         catchError((err)=>throwError(err))

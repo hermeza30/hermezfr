@@ -1,13 +1,13 @@
 export class Categoria {
     public _id: string;
     public nombre: string;
-    public precio: string;
+    public precio: number;
     public descripcion: string;
     public talle: string;
     constructor(
       _id: string,
       _nombre: string,
-      _precio: string,
+      _precio: number,
       _descripcion?: string,
       _talle?:string
     ) {

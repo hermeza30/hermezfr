@@ -12,12 +12,19 @@
                     </select>
                     </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-3">
                 <div class="form-group">
                     <label class="control-label">Talle:</label>
                     <input  [(ngModel)]="talle"  type="text" name="talle" class="form-control" placeholder="talle">
                    </div>
             </div>
+            <div class="col-md-3">
+                   <div class="form-group">
+                    <label class="control-label">Cantidad:</label>
+                    <input  [(ngModel)]="cantidad"  type="text" name="cantidad" class="form-control" placeholder="cantidad">
+                   </div>
+            </div>
+
         </div>
         <!--/row-->
         <div class="row  p-t-20">
@@ -36,7 +43,7 @@
         <div class="row  p-t-20">
             <div class="col-md-12">
                 <div class="float-right">
-                    <button type="button" (click)="agregarProducto()" class="btn btn-success"> <i class="fa fa-plus"></i> Agregar</button>
+                    <button type="button" (click)="agregarProducto()" class="btn btn-light"> <i class="fa fa-plus"></i> Agregar</button>
                 </div>
             </div>
         </div>
@@ -46,7 +53,9 @@
                     <thead>
                         <th>Nombre</th>
                         <th>Talle</th>
-                        <th>Precio</th>
+                        <th>Cantidad</th>
+                        <th>Precio Unitario</th>
+                        <th>Precio Cantidad</th>
                         <th>Detalle</th>
                         <th>Eliminar</th>
                         <th></th>
@@ -56,14 +65,20 @@
                         <tr *ngFor="let c of productos">
                             <td>{{c.nombre}}</td>
                             <td>{{c.talle}}</td>
+                            <td>{{c.cantidad}}</td>
                             <td>{{c.precio}}</td>
+                            <td>{{c.preciocantidad}}</td>
                             <td>{{c.descripcion}}</td>
                             <td><button (click)="removerProducto(c)" type="button" class="btn btn-danger"><i class="fa fa-trash"></i> Eliminar</button></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
                         </tr>
                     </tbody>
+                    <tfoot>
+                        <tr class="table-info">
+                          <th id="total" colspan="3">Totales :</th>
+                          <td></td>
+                          <td>{{total}}</td>
+                        </tr>
+                       </tfoot>
                 </table>
             </div>
         </div>                

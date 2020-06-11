@@ -1,80 +1,109 @@
-
 <form #f="ngForm">
+  <div class="form-body">
+    <h3 class="box-title m-t-40">Agregar Cliente</h3>
+    <div class="row p-t-20">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label class="control-label">Nombre cliente:</label>
+          <input
+            [ngModel]="nombre"
+            type="text"
+            name="nombre"
+            class="form-control"
+            placeholder="nombre"
+          />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label class="control-label">Telefono:</label>
+          <input
+            [(ngModel)]="telefono"
+            type="text"
+            name="telefono"
+            class="form-control"
+            placeholder="telefono"
+          />
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="float-right">
+          <button type="button" (click)="buscar(f.value)" class="btn btn-light">
+            <i class="fa fa-search"></i> Buscar
+          </button>
+        </div>
+      </div>
+    </div>
+    <!--/row-->
+    <div *ngIf="policias" class="row">
+      <div class="col-8">
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title"></h3>
+            <table class="table color-table inverse-table">
+              <thead>
+                <th>Nombre</th>
+                <th>Jerarquía</th>
+                <th>Teléfono</th>
+                <th>Seleccionar</th>
+                <th></th>
+              </thead>
+              <tbody>
+                <tr *ngFor="let p of policias">
+                  <td>{{ p.nombre }}</td>
+                  <td>{{ p.jerarquia }}</td>
+                  <td>{{ p.telefono }}</td>
+                  <td>
+                    <button
+                      type="button"
+                      (click)="agregarCliente(p)"
+                      class="btn btn-warning"
+                    >
+                      <i class="fa fa-plus"></i> Agregar
+                    </button>
+                  </td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-    <div class="form-body">
-        <h3 class="box-title m-t-40">Agregar Cliente</h3>
-        <div class="row p-t-20">
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label class="control-label">Nombre cliente:</label>
-                    <input [ngModel]="nombre"  type="text" name="nombre" class="form-control" placeholder="nombre">
-                   </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label class="control-label">Telefono:</label>
-                    <input [(ngModel)]="telefono" type="text" name="telefono" class="form-control" placeholder="telefono">
-                   </div>
-            </div>
-            <div class="col-md-12">
-                <div class="float-right">
-                    <button type="button" (click)="buscar(f.value)" class="btn btn-secondary"> <i class="fa fa-search"></i> Buscar</button>
-                </div>
-            </div>
-        </div>
-        <!--/row-->
-        <div *ngIf="policias" class="row">
-            <div class="col-8">
-                <div class="card">
-                    <div class="card-body">
-                        <h3 class="card-title"></h3>
-                        <table class="table color-table inverse-table">
-                            <thead >
-                                <th>Nombre</th>
-                                <th>Jerarquía</th>
-                                <th>Teléfono</th>
-                                <th>Ver</th>
-                                <th>Seleccionar</th>
-                                <th></th>
-                            </thead>
-                            <tbody >
-                                <tr  *ngFor="let p of policias">
-                                    <td>{{p.nombre}}</td>
-                                    <td>{{p.jerarquia}}</td>
-                                    <td>{{p.telefono}}</td>
-                                    <td><button type="button" class="btn btn-info"><i class="fa fa-search"></i>    Ver</button></td>
-                                    <td> 
-                                    <button type="button" (click)="agregarCliente(p)" class="btn btn-warning"> <i class="fa fa-plus"></i> Agregar</button>
-                                      </td>
-                                    <td></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>  
+  <div *ngIf="policia" class="form-body">
+    <div class="row col-12">
+      <div class="col-3">
+        <h4 class="row">Cliente</h4>
+        <div class="row"><label class="control-label text-right">Nombre: </label><p>{{ policia.nombre }}</p></div> 
+        <div class="row"><label class="control-label text-right">Teléfono: </label><p>{{ policia.telefono }}</p></div> 
+        <div class="row"><label class="control-label text-right">Jerarquía: </label><p>{{ policia.jerarquia }}</p></div> 
+      </div>
+      <div class="col-3">
+        <h4 class="row">Torso</h4>
+        <div class="row"><label class="control-label text-right">Espalda: </label><p>{{ policia.espalda }}</p></div> 
+        <div class="row"><label class="control-label text-right">Pecho: </label><p>{{ policia.pecho }}</p></div> 
+        <div class="row"><label class="control-label text-right">Largo Manga: </label><p>{{ policia.largomanga }}</p></div> 
+        <div class="row"><label class="control-label text-right">Cuello: </label><p>{{ policia.cuello }}</p></div> 
+        <div class="row"><label class="control-label text-right">Cintura panza: </label><p>{{ policia.cinturapanza }}</p></div> 
+        <div class="row"><label class="control-label text-right">Largo torso: </label><p>{{ policia.largotorso }}</p></div> 
+      </div>
+      <div class="col-3">
+        <h4 class="row">Pierna</h4>
+
+        <div class="row"><label class="control-label text-right">Cintura: </label><p>{{ policia.cintura }}</p></div> 
+        <div class="row"><label class="control-label text-right">Cadera: </label><p>{{ policia.cadera }}</p></div> 
+        <div class="row"><label class="control-label text-right">Ancho pierna: </label><p>{{ policia.anchopierna }}</p></div> 
+        <div class="row"><label class="control-label text-right">Tiro: </label><p>{{ policia.tiro }}</p></div> 
+        <div class="row"><label class="control-label text-right">Largo pierna: </label><p>{{ policia.largopierna }}</p></div> 
+        <div class="row"><label class="control-label text-right">Altura rodilla: </label><p>{{ policia.alturarodilla }}</p></div> 
+        <div class="row"><label class="control-label text-right">Pantorrilla: </label><p>{{ policia.pantorrilla }}</p></div> 
+      </div>
+      <div class="col-3">
+        <h4 class="row">Observación</h4>
+        <div class="row"><label class="control-label text-right">Observacion: </label><p>{{ policia.observacion }}</p></div> 
+      </div>
     </div>
-    
-    <div *ngIf="policia" class="form-body">
-        <h4>Cliente</h4>
-        <div class="row">
-            <div class="col">
-                    <strong> Nombre: {{policia.nombre}}</strong>
-            </div>
-            <br>
-        </div>
-        <div class="row">
-            <div class="col">
-                    <strong> Teléfono: {{policia.telefono}}</strong>
-             </div>
-            <br>
-    
-        </div>
-        <div class="row">
-            <div class="col">
-                    <strong> Jerarquia:{{policia.jerarquia}}</strong>
-             </div>
-        </div>
-    </div>
+  </div>
 </form>
