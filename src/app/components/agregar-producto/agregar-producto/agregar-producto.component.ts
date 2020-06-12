@@ -73,13 +73,14 @@ public suscription:Subscription;
   }
   crearProducto():Producto{
     let producto:Producto=new Producto();
+    producto.categoria=new Categoria('','',null);
+    producto.categoria._id=this.categoria._id;
     producto.talle=this.talle;
-    producto.categoria=this.categoria._id;
-    producto.precio=this.categoria.precio;
+    producto.categoria._id=this.categoria._id;
     producto.descripcion=this.descripcion;
     producto.nombre=this.categoria.nombre;
     producto.cantidad=this.cantidad;
-    producto.preciocantidad=this.cantidad*producto.precio;
+    producto.preciocantidad=this.cantidad*this.categoria.precio;
     return producto;
   }
 }

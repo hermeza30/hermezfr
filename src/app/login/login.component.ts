@@ -54,9 +54,7 @@ attachSignin(element){
     let recordar = forma.value.recuerdame;
     let usuario = new Usuario(null, forma.value.email, forma.value.password);
     this._usuarioService.login(usuario, recordar).subscribe((res) => {
-      swal('Login', 'Usuario logueado' + res.nombre, 'success').then(() =>
         this.router.navigate(['/dashboard'])
-      );
     });
   }
 }

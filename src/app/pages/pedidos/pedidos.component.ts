@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Policia } from '../../models/policia.model';
 import { Producto } from '../../models/producto.model';
 import { Pedido } from '../../models/pedido.model';
+import { PedidosService } from '../../services/pedidos/pedidos.service';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ErrorService } from 'src/app/services/service.index';
+import { Estado } from 'src/app/models/estado.model';
+import { EstadoPedidoService } from '../../services/estado/estado-pedido.service';
+
 
 @Component({
   selector: 'app-pedidos',
@@ -12,26 +17,52 @@ import { Pedido } from '../../models/pedido.model';
 export class PedidosComponent implements OnInit {
   public pedido:Pedido;
   public fechaPedido:Date=new Date();
-  constructor() { }
+  public form:FormGroup;
+  constructor(public _pedidoService:PedidosService, public _errorService:ErrorService, public _estadoService:EstadoPedidoService) { }
 
   ngOnInit(): void {
     this.iniciarPedido();
+  this.crearForm();
+  }
+  crearForm(){
+    this.form=new FormGroup({
+      fechape:new FormControl(null,Validators.required),
+      observacion:new FormControl(null)
+    })
+  }
+  getFecha(){
+    return this.form.get("fechape") as FormControl;
   }
   registrar(){
-   if(this.pedido.policia.length>0&&this.pedido.prductos.length>0){
-    console.log(this.pedido)
+    if(this.form.invalid){
+      swal("Registrar pedido","Ingrese la fecha probable de entrega del producto","warning");
+      this._errorService.mostrarError();
+     return;
+    }
+    if(this.pedido.policia._id.length>0&&this.pedido.productos.length>0){
+
+            this.calcularTotal();
+            this.pedido.fechaProbableEntrega=this.form.value.fechape;
+            this._pedidoService.registrarPedido(this.pedido).subscribe(res=>{
+                //ver que hacer una vez que se registra el pedido
+            });
    }else{
      swal("Registrar pedido","Ingrese producto y policia","warning");
      return;
    }
   }
   cargarPersona(id:string){
-    this.pedido.policia=id;
+    this.pedido.policia._id=id;
   }
   cargarProductos(pr:any){
-    this.pedido.prductos=pr;
+    this.pedido.productos=pr;
   }
   iniciarPedido(){
-    this.pedido=new Pedido('',null,'',"1",null,this.fechaPedido,null,null);
+    this.pedido=new Pedido('',null,null,this._estadoService.estadoPedidos()[0],null,this.fechaPedido,this.fechaPedido ,null);
+  }
+  calcularTotal(){
+    this.pedido.total=this.pedido.productos.reduce((acumulador:number=0,currentValue:Producto)=>{
+      return acumulador+currentValue.preciocantidad;
+    },0)
   }
 }

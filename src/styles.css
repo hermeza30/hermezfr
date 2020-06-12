@@ -1,23 +1,44 @@
 /* You can add global styles to this file, and also import other style files */
-#themecolors a{
-    cursor:pointer;
+#themecolors a {
+  cursor: pointer;
 }
-.pointer{
-    cursor:pointer
+.pointer {
+  cursor: pointer;
 }
-.fondo-negro{
-    background-color: rgba(0, 0, 0, 0.4);
-    position:fixed;
-    top:0px;
-    left:0px;
-    width: 100%;
-    height: 100%;
-    z-index: 9999;
+.fondo-negro {
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
 }
-.oculto{
-    display: none;
+.oculto {
+  display: none;
 }
 .has-error {
-    color: red;
-    background-color: yellow;
+  color: red;
+  background-color: yellow;
 }
+.error {
+  border-color: #ef5350;
+}
+.label-iniciado {
+  background-color: #8FBC8F;
+}
+.label-notificado {
+  background-color: #0000ff;
+}
+.label-terminado {
+  background-color: #CD5C5C;
+}
+.label-entregado {
+  background-color: #006400;
+}
+.label-eliminado {
+  background-color: #8b0000;
+}
+.label-cortado {
+    background-color: #FF8C00;
+  }

@@ -43,19 +43,35 @@
                         <button type="submit" class="btn btn-success"> <i class="fa fa-search"></i> Buscar</button>
                     </div>
                 </div>
+
+            </div>
+        </div>
+    </div>
+</div>  
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title">Pedidos registrados ( <small>{{ totalRegistros }}</small> )</h3>
                 <table class="table table-hover primary-table">
                     <thead class="thead-dark">
-                        <th>Descripcion</th>
                         <th>Policia</th>
+                        <th>Fecha</th>
+                        <th>Fecha probable entrega</th>
+                        <th>Estado</th>
                         <th>Detalle</th>
                         <th></th>
                         <th></th>
                         <th></th>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Cammisa,Pantalon,Remera</td>
-                            <td>Oficial Godines</td>
+                        <tr *ngFor="let p of pedidos">
+                            <td>{{p.policia.nombre}}</td>
+                            <td>{{p.fechaPedido | date:'dd/MM/yyyy'}}</td>
+                            <td>{{p.fechaProbableEntrega | date:'dd/MM/yyyy'}}</td>
+                            <td>
+                                <div class="label label-table" [ngClass]="_estadoService.getEstado(p.estado).color">{{_estadoService.getEstado(p.estado).nombre}}</div>
+                            </td>
                             <td><button type="button" class="btn btn-dark"> Ver</button></td>
                             <td></td>
                             <td></td>
@@ -63,7 +79,15 @@
                         </tr>
                     </tbody>
                 </table>
+                <button (click)="cambiarDesde(-5)" class="btn btn-secondary">
+                    Anteriores
+                  </button>
+  
+                  <button (click)="cambiarDesde(5)" class="btn btn-secondary">
+                      Siguientes
+                  </button>
+
             </div>
         </div>
     </div>
-</div>  
+</div> 

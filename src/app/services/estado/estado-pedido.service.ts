@@ -10,20 +10,32 @@ export class EstadoPedidoService {
 
   public estadoPedidos(){
     let estados:Estado[]=[{
-      _id:"1",
-      _nombre:"Iniciado"
+      _id:1,
+      nombre:"Iniciado",
+      color:"label-iniciado"
     },{
-      _id:"2",
-      _nombre:"Cortado"
+      _id:2,
+      nombre:"terminado",
+      color:"label-terminado"
+
     },{
-      _id:"3",
-      _nombre:"Confeccionado"
+      _id:3,
+      nombre:"notificado",
+      color:"label-notificado"
     },{
-      _id:"4",
-      _nombre:"Notificado"
+      _id:4,
+      nombre:"Entregado",
+      color:"label-entregado"
     },{
-      _id:"5",
-      _nombre:"Entregado"
-    }]
+      _id:5,
+     nombre:"Cortado",
+      color:"label-cortado"
+    }];
+    return estados;
   }
+  getEstado(id:number):Estado{
+   let estado:Estado= this.estadoPedidos().find(x=>x._id=id);
+   return estado;
+  }
+ 
 }

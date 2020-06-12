@@ -1,13 +1,16 @@
 
 export class Estado {
-    public _id:string;
-    public _nombre: string;
+    public _id:number;
+    public nombre: string;
+    public color:string;
     constructor(
-      _id: string,
-      _nombre:string,
+      _id: number,
+      _nombre?:string,
+      _color?:string
       
     ) {
       this._id = _id;
-      this._nombre = _nombre;
+      this.nombre = _nombre;
+      this.color = _color;
     }
   }
