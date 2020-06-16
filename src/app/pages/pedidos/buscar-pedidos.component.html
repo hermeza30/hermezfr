@@ -8,17 +8,15 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="control-label">Nombre cliente:</label>
-                                <input type="text" name="nombre" class="form-control" placeholder="nombre">
+                                <input #nombre (keyup)="cambiandoBusqueda(nombre.value,'nombre')" type="text" name="nombre" class="form-control" placeholder="nombre">
                                </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="control-label">Producto</label>
-                                <select name="producto" class="form-control custom-select">
-                                    <option value="">Garibaldina</option>
-                                    <option value="">Pantalon</option>
-                                    <option value="">Campera</option>
-                                    <option value="">Remera</option>
+                                <select  (change)="cambiandoBusqueda($event.target.value,'producto')" class="form-control custom-select">
+                                    <option value="">Seleccionar</option>
+                                    <option *ngFor="let c of categorias" [value]="c._id">{{c.nombre}}</option>
                                 </select>
                                 </div>
                         </div>
@@ -30,8 +28,18 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="control-label">Fecha de pedido</label>
-                                <input name="fecha" type="date" class="form-control" placeholder="dd/mm/yyyy">
+                                <input name="fecha" type="date" class="form-control" [(ngModel)]="fecha" placeholder="dd/mm/yyyy">
                             </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">Estado</label>
+  
+                                <select (change)="cambiandoBusqueda($event.target.value,'estado')"class="form-control custom-select">
+                                    <option value="">Seleccionar</option>
+                                    <option *ngFor="let t of estados" [value]="t._id">{{t.nombre}}</option>
+                                </select>
+                                </div>
                         </div>
                         <!--/span-->
                     </div>
@@ -40,7 +48,7 @@
                 </div>
                 <div class="form-actions">
                     <div class="float-right">
-                        <button type="submit" class="btn btn-success"> <i class="fa fa-search"></i> Buscar</button>
+                        <button type="button" (click)="buscando()" class="btn btn-success"> <i class="fa fa-search"></i> Buscar</button>
                     </div>
                 </div>
 
@@ -48,31 +56,36 @@
         </div>
     </div>
 </div>  
-<div class="row">
+<div *ngIf="pedidos?.length>0" class="row">
     <div class="col-12">
         <div class="card">
             <div class="card-body">
                 <h3 class="card-title">Pedidos registrados ( <small>{{ totalRegistros }}</small> )</h3>
-                <table class="table table-hover primary-table">
-                    <thead class="thead-dark">
+                <table class="table color-table muted-table">
+                    <thead>
                         <th>Policia</th>
                         <th>Fecha</th>
                         <th>Fecha probable entrega</th>
                         <th>Estado</th>
-                        <th>Detalle</th>
-                        <th></th>
-                        <th></th>
+                        <th>Cambiar estado</th>
+                        <th>Acción</th>
                         <th></th>
                     </thead>
                     <tbody>
                         <tr *ngFor="let p of pedidos">
-                            <td>{{p.policia.nombre}}</td>
+                            <td>{{p.policia?.nombre}} </td>
                             <td>{{p.fechaPedido | date:'dd/MM/yyyy'}}</td>
                             <td>{{p.fechaProbableEntrega | date:'dd/MM/yyyy'}}</td>
                             <td>
                                 <div class="label label-table" [ngClass]="_estadoService.getEstado(p.estado).color">{{_estadoService.getEstado(p.estado).nombre}}</div>
                             </td>
-                            <td><button type="button" class="btn btn-dark"> Ver</button></td>
+                            <td>
+                                <select [(ngModel)]="p.estado">
+                                        <option value="">Seleccionar</option>
+                                        <option *ngFor="let e of _estadoService.estadoPedidos()" [value]="e._id">{{e.nombre}}</option>
+                              </select>
+                        </td>
+                            <td><button (click)="seleccionarPedido(p)" type="button" class="btn btn-dark"> Ver</button></td>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -91,3 +104,5 @@
         </div>
     </div>
 </div> 
+
+<app-detalle-pedido [pedido]="pedidoSeleccionado"></app-detalle-pedido>  

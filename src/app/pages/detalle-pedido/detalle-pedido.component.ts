@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Pedido } from '../../models/pedido.model';
+import { EstadoPedidoService } from '../../services/estado/estado-pedido.service';
 
 @Component({
   selector: 'app-detalle-pedido',
@@ -7,8 +9,8 @@ import { Component, OnInit } from '@angular/core';
   ]
 })
 export class DetallePedidoComponent implements OnInit {
-
-  constructor() { }
+@Input("pedido") pedido:Pedido;
+  constructor(public _estadoServicio:EstadoPedidoService) { }
 
   ngOnInit(): void {
   }

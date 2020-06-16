@@ -3,6 +3,8 @@ import { PedidosService } from '../../../services/pedidos/pedidos.service';
 import { Producto } from '../../../models/producto.model';
 import { Categoria } from '../../../models/categoria.model';
 import { Observable, Subscriber, Subscription } from 'rxjs';
+import { Estado } from 'src/app/models/estado.model';
+import { EstadoPedidoService } from '../../../services/estado/estado-pedido.service';
 
 @Component({
   selector: 'app-agregar-producto',
@@ -21,7 +23,7 @@ public total:number=0;
 public suscription:Subscription;
 @Output('productos') emitproductos:EventEmitter<Producto[]>=new EventEmitter();
 
-  constructor(public _pedidoService:PedidosService) { 
+  constructor(public _pedidoService:PedidosService, public _estadoService:EstadoPedidoService) { 
 
   }
 
@@ -74,6 +76,7 @@ public suscription:Subscription;
   crearProducto():Producto{
     let producto:Producto=new Producto();
     producto.categoria=new Categoria('','',null);
+    producto.estado=this._estadoService.getEstado(1);
     producto.categoria._id=this.categoria._id;
     producto.talle=this.talle;
     producto.categoria._id=this.categoria._id;
@@ -81,6 +84,7 @@ public suscription:Subscription;
     producto.nombre=this.categoria.nombre;
     producto.cantidad=this.cantidad;
     producto.preciocantidad=this.cantidad*this.categoria.precio;
+  
     return producto;
   }
 }

@@ -1,75 +1,54 @@
-<div class="col-12">
-    <div class="card">
-        <div class="card-body">
-            <h4 class="card-title">Responsive Table </h4>
-            <h6 class="card-subtitle">Create responsive tables by wrapping any <code>.table</code> in <code>.table-responsive </code></h6>
-            <div class="table-responsive">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Invoice</th>
-                            <th>User</th>
-                            <th>Date</th>
-                            <th>Amount</th>
-                            <th>Status</th>
-                            <th>Country</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><a href="javascript:void(0)">Order #26589</a></td>
-                            <td>Herman Beck</td>
-                            <td><span class="text-muted"><i class="fa fa-clock-o"></i> Oct 16, 2017</span> </td>
-                            <td>$45.00</td>
-                            <td>
-                                <div class="label label-table label-terminado">Paid</div>
-                            </td>
-                            <td>EN</td>
-                        </tr>
-                        <tr>
-                            <td><a href="javascript:void(0)">Order #58746</a></td>
-                            <td>Mary Adams</td>
-                            <td><span class="text-muted"><i class="fa fa-clock-o"></i> Oct 12, 2017</span> </td>
-                            <td>$245.30</td>
-                            <td>
-                                <div class="label label-table label-notificado">Shipped</div>
-                            </td>
-                            <td>CN</td>
-                        </tr>
-                        <tr>
-                            <td><a href="javascript:void(0)">Order #98458</a></td>
-                            <td>Caleb Richards</td>
-                            <td><span class="text-muted"><i class="fa fa-clock-o"></i> May 18, 2017</span> </td>
-                            <td>$38.00</td>
-                            <td>
-                                <div class="label label-table label-iniciado">Shipped</div>
-                            </td>
-                            <td>AU</td>
-                        </tr>
-                        <tr>
-                            <td><a href="javascript:void(0)">Order #32658</a></td>
-                            <td>June Lane</td>
-                            <td><span class="text-muted"><i class="fa fa-clock-o"></i> Apr 28, 2017</span> </td>
-                            <td>$77.99</td>
-                            <td>
-                                <div class="label label-table label-entregado">Paid</div>
-                            </td>
-                            <td>FR</td>
-                        </tr>
-                        <tr>
-                            <td><a href="javascript:void(0)">Order #32658</a></td>
-                            <td>June Lane</td>
-                            <td><span class="text-muted"><i class="fa fa-clock-o"></i> Apr 28, 2017</span> </td>
-                            <td>$77.99</td>
-                            <td>
-                                <div class="label label-table label-eliminado">Paid</div>
-                            </td>
-                            <td>FR</td>
-                        </tr>
-                        
-                    </tbody>
-                </table>
+
+<div *ngIf="pedido" class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title">Detalle Pedidos</h3>
+               <h4 class="card-subtitle">El pedido del policia <code>{{pedido.policia.nombre}}</code> con el cargo <code>{{pedido.policia.jerarquia}} </code></h4>
+               <form>
+                <div class="form-group row">
+                  <label for="nombre" class="col-sm-2 col-form-label">Nombre</label>
+                  <div class="col-sm-10">
+                    <input type="text" readonly class="form-control-plaintext"  [(ngModel)]="pedido.policia.nombre" name="nombre">
+                  </div>
+                </div>
+                <div class="form-group row">
+                    <label for="total" class="col-sm-2 col-form-label">Total $</label>
+                    <div class="col-sm-10">
+                      <input type="text" readonly class="form-control-plaintext"  [(ngModel)]="pedido.total"  name="total">
+                    </div>
+                  </div>
+
+              </form>
+               <div class="table-responsive">
+                    <table class="table color-table inverse-table">
+                        <thead>
+                            <th>Producto</th>
+                            <th>Estado                     
+                            </th>
+                            <th>Talle</th>
+                            <th>Cantidad</th>
+                            <th>Total</th>
+                            <th></th>
+                            <th></th>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let p of pedido.productos">
+                                <td>{{p.nombre}}</td>
+                                <td> <select [(ngModel)]="p.estado._id" >
+                                    <option value="">Seleccionar</option>
+                                    <option *ngFor="let e of _estadoServicio.estadoPedidos()" [value]="e._id">{{e.nombre}}</option>
+                                </select></td>
+                                <td>{{p.talle}}</td>
+                                <td>{{p.cantidad}}</td>
+                                <td><strong>$</strong>{{p.preciocantidad}}</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
-</div>
+</div>  

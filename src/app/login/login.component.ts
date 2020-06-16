@@ -34,7 +34,6 @@ export class LoginComponent implements OnInit {
     });
   }
 attachSignin(element){
-  console.log(element)
   this.auth2.attachClickHandler(element,{},(googleUser)=>{
     // let profile=googleUser.getBasicProfile();
     // console.log(profile);

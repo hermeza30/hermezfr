@@ -11,25 +11,25 @@ export class EstadoPedidoService {
   public estadoPedidos(){
     let estados:Estado[]=[{
       _id:1,
-      nombre:"Iniciado",
-      color:"label-iniciado"
+      nombre:"Pendiente",
+      color:"label-pendiente"
     },{
       _id:2,
-      nombre:"terminado",
-      color:"label-terminado"
+      nombre:"Cortado",
+      color:"label-cortado"
 
     },{
       _id:3,
-      nombre:"notificado",
-      color:"label-notificado"
+      nombre:"Terminado",
+      color:"label-terminado"
     },{
       _id:4,
-      nombre:"Entregado",
-      color:"label-entregado"
+      nombre:"Notificado",
+      color:"label-notificado"
     },{
       _id:5,
-     nombre:"Cortado",
-      color:"label-cortado"
+     nombre:"Entregado",
+      color:"label-entregado"
     }];
     return estados;
   }

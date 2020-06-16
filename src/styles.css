@@ -40,5 +40,9 @@
   background-color: #8b0000;
 }
 .label-cortado {
-    background-color: #FF8C00;
+    background-color: #FF4500;
+  }
+  .label-pendiente {
+    background-color: #FFFF00;
+    color:#000000;
   }

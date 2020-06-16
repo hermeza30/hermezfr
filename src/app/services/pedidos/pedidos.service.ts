@@ -7,6 +7,7 @@ import { throwError } from 'rxjs';
 import { Pedido } from '../../models/pedido.model';
 import { FechasService } from '../fechas/fechas.service';
 import { createInject } from '@angular/compiler/src/core';
+import { Categoria } from '../../models/categoria.model';
 
 @Injectable({
   providedIn: 'root',
@@ -16,13 +17,14 @@ export class PedidosService {
     public _usuarioService: UsuarioService,
     public http: HttpClient,
     public _fechaService: FechasService
-  ) {}
+  ) {
+    this.cargarCategorias();
+  }
 
   cargarCategorias() {
     let url = URL_SERVICE + '/categoria';
     return this.http.get(url).pipe(
-      map((res: any) => {
-        return res.categoria;
+      map((res: any) => {        return res.categoria;
       }),
       catchError((err) => throwError(err))
     );
@@ -31,6 +33,7 @@ export class PedidosService {
     pedido.fechaPedido = this._fechaService.construirFecha(pedido.fechaPedido);
     pedido.fechaProbableEntrega = this._fechaService.construirFecha(pedido.fechaProbableEntrega);
     let url = URL_SERVICE + '/pedido';
+    console.log(pedido)
     return this.http.post(url, pedido).pipe(
       map((res: any) => {
         swal("Registrar pedido","Se registró correctamente el pedido.","success");
@@ -39,8 +42,11 @@ export class PedidosService {
       catchError((err) => throwError(err))
     );
   }
-  cargarPedidos(desde:number,estado) {
-    let url = URL_SERVICE + '/pedido/'+estado+'/?desde='+desde;
+  cargarPedidos(desde:number,tabla:string,param:any) {
+    if(tabla==="fecha"){
+      param=this._fechaService.construirFecha(param);
+    }
+    let url = URL_SERVICE + '/pedido/'+tabla+'/'+param+'/?desde='+desde;
    return this.http.get(url).pipe(
       map((res: any) => {
         return res;
