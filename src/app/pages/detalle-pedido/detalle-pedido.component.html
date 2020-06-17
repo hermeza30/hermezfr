@@ -4,19 +4,40 @@
         <div class="card">
             <div class="card-body">
                 <h3 class="card-title">Detalle Pedidos</h3>
-               <h4 class="card-subtitle">El pedido del policia <code>{{pedido.policia.nombre}}</code> con el cargo <code>{{pedido.policia.jerarquia}} </code></h4>
                <form>
                 <div class="form-group row">
-                  <label for="nombre" class="col-sm-2 col-form-label">Nombre</label>
-                  <div class="col-sm-10">
+                    <div class="col-sm-10">
+                  <label for="nombre" class="col-form-label">Nombre:</label>
                     <input type="text" readonly class="form-control-plaintext"  [(ngModel)]="pedido.policia.nombre" name="nombre">
                   </div>
                 </div>
                 <div class="form-group row">
-                    <label for="total" class="col-sm-2 col-form-label">Total $</label>
+                    <div class="col-10">
+                        <label for="estado" class="col-form-label">Estado:</label>
+                          <select [(ngModel)]="pedido.estado" name="estado">
+                              <option value="">Seleccionar</option>
+                              <option *ngFor="let e of _estadoServicio.estadoPedidos()" [value]="e._id">{{e.nombre}}</option>
+                    </select>
+                    </div>
+                </div>
+                <div *ngIf="pedido.senia" class="form-group row">
                     <div class="col-sm-10">
+                    <label for="senia" class="col-form-label">Seña: $</label>
+                      <input type="text" readonly class="form-control-plaintext"  [(ngModel)]="pedido.senia"  name="senia">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-8">
+                    <label for="total" class="col-form-label">Total pedido: $</label>
                       <input type="text" readonly class="form-control-plaintext"  [(ngModel)]="pedido.total"  name="total">
                     </div>
+                  </div>
+                  <div class="form-group row">
+                      <div class="col-sm-8">
+                    <label *ngIf="pedido.senia" for="cobrar" class="col-form-label" style="color:orangered">Total a cobrar: ${{pedido.total-pedido.senia}}</label>
+                    <label *ngIf="!pedido.senia" for="cobrar" class="col-form-label" style="color:orangered">Total a cobrar: ${{pedido.total}}</label>
+                   
+                </div>
                   </div>
 
               </form>
@@ -37,7 +58,7 @@
                                 <td>{{p.nombre}}</td>
                                 <td> <select [(ngModel)]="p.estado._id" >
                                     <option value="">Seleccionar</option>
-                                    <option *ngFor="let e of _estadoServicio.estadoPedidos()" [value]="e._id">{{e.nombre}}</option>
+                                    <option *ngFor="let e of _estadoServicio.estadoProducto()" [value]="e._id">{{e.nombre}}</option>
                                 </select></td>
                                 <td>{{p.talle}}</td>
                                 <td>{{p.cantidad}}</td>
@@ -48,7 +69,14 @@
                         </tbody>
                     </table>
                 </div>
+                <div class="form-actions">
+                    <div class="float-right">
+                        <button type="button" (click)="actualizar()" class="btn btn-warning"> <i class="fa fa-plus"></i> actualizar</button>
+                    </div>
+                </div>
             </div>
         </div>
+
+   
     </div>
 </div>  

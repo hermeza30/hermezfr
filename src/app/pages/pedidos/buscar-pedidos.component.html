@@ -67,7 +67,6 @@
                         <th>Fecha</th>
                         <th>Fecha probable entrega</th>
                         <th>Estado</th>
-                        <th>Cambiar estado</th>
                         <th>Acción</th>
                         <th></th>
                     </thead>
@@ -79,12 +78,6 @@
                             <td>
                                 <div class="label label-table" [ngClass]="_estadoService.getEstado(p.estado).color">{{_estadoService.getEstado(p.estado).nombre}}</div>
                             </td>
-                            <td>
-                                <select [(ngModel)]="p.estado">
-                                        <option value="">Seleccionar</option>
-                                        <option *ngFor="let e of _estadoService.estadoPedidos()" [value]="e._id">{{e.nombre}}</option>
-                              </select>
-                        </td>
                             <td><button (click)="seleccionarPedido(p)" type="button" class="btn btn-dark"> Ver</button></td>
                             <td></td>
                             <td></td>
@@ -105,4 +98,4 @@
     </div>
 </div> 
 
-<app-detalle-pedido [pedido]="pedidoSeleccionado"></app-detalle-pedido>  
+<app-detalle-pedido [pedido]="pedidoSeleccionado" ></app-detalle-pedido>  

@@ -4,6 +4,7 @@ import { Pedido } from '../../models/pedido.model';
 import { EstadoPedidoService } from '../../services/estado/estado-pedido.service';
 import { Categoria } from '../../models/categoria.model';
 import { Estado } from 'src/app/models/estado.model';
+import { DolarService } from '../../services/dolar/dolar.service';
 
 @Component({
   selector: 'app-buscar-pedidos',
@@ -19,7 +20,9 @@ export class BuscarPedidosComponent implements OnInit {
   public fecha:Date;
   desde: number = 0;
   totalRegistros: number = 0;
-  constructor(public _pedidoService:PedidosService,public _estadoService:EstadoPedidoService) { }
+  constructor(public _pedidoService:PedidosService,public _estadoService:EstadoPedidoService,public _apiDolar:DolarService) {
+    _apiDolar.llamarApi().subscribe();
+   }
 
   ngOnInit(): void {
     this.cargarPedidos();
@@ -34,19 +37,21 @@ export class BuscarPedidosComponent implements OnInit {
   }
   cambiandoBusqueda(event:any,tabla:string){
     if(event.length<=0){
+      this.cargarPedidos();
       return
     }
     this.busqueda(tabla,event);
   }
   buscando(){ 
+    
     if(!this.fecha)return
       this.busqueda("fecha",this.fecha);
   }
 
   busqueda(tabla:string,event:any){
+  
     this._pedidoService.cargarPedidos( this.desde,tabla,event).subscribe((res:any)=>{
       if(res.pedido.length>0){
-        console.log(res.pedido)
         this.totalRegistros=res.total;
         this.pedidos=res.pedido;
       }else{
@@ -74,6 +79,7 @@ export class BuscarPedidosComponent implements OnInit {
 
   }
   seleccionarPedido(p:Pedido){
+
     this.pedidoSeleccionado=p;
   }
 }

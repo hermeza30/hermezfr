@@ -27,7 +27,8 @@ export class PedidosComponent implements OnInit {
   crearForm(){
     this.form=new FormGroup({
       fechape:new FormControl(null,Validators.required),
-      observacion:new FormControl(null)
+      observacion:new FormControl(null),
+      senia:new FormControl()
     })
   }
   getFecha(){
@@ -43,6 +44,7 @@ export class PedidosComponent implements OnInit {
 
             this.calcularTotal();
             this.pedido.fechaProbableEntrega=this.form.value.fechape;
+            this.pedido.senia=this.form.value.senia;
             this._pedidoService.registrarPedido(this.pedido).subscribe(res=>{
                 //ver que hacer una vez que se registra el pedido
             });
@@ -58,7 +60,7 @@ export class PedidosComponent implements OnInit {
     this.pedido.productos=pr;
   }
   iniciarPedido(){
-    this.pedido=new Pedido('',null,null,this._estadoService.estadoPedidos()[0],null,this.fechaPedido,this.fechaPedido ,null);
+    this.pedido=new Pedido('',null,null,this._estadoService.estadoPedidos()[0],null,this.fechaPedido,this.fechaPedido ,null,null);
   }
   calcularTotal(){
     this.pedido.total=this.pedido.productos.reduce((acumulador:number=0,currentValue:Producto)=>{

@@ -12,6 +12,7 @@ export class Pedido {
     public fechaPedido:Date;
     public fechaProbableEntrega:Date;
     public fechaRealEntrega:Date;
+    public senia:number;
     constructor(
       _id: string,
       _prductos: Producto[],
@@ -22,7 +23,7 @@ export class Pedido {
       _fechaProbableEntrega?:Date,
       _fechaRealEntrega?:Date,
       _descripcion?: string,
-      
+      _senia?:number
     ) {
       this._id=_id;
       this.productos=_prductos;
@@ -33,5 +34,6 @@ export class Pedido {
       this.fechaProbableEntrega=_fechaProbableEntrega;
       this.fechaRealEntrega=_fechaRealEntrega;
       this.descripcion=_descripcion;
+      this.senia=_senia;
     }
   }

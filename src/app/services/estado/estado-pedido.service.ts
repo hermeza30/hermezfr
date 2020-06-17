@@ -15,6 +15,26 @@ export class EstadoPedidoService {
       color:"label-pendiente"
     },{
       _id:2,
+      nombre:"Terminado",
+      color:"label-terminado"
+    },{
+      _id:3,
+      nombre:"Notificado",
+      color:"label-notificado"
+    },{
+      _id:4,
+     nombre:"Entregado",
+      color:"label-entregado"
+    }];
+    return estados;
+  }
+ public  estadoProducto(){
+    let estados:Estado[]=[{
+      _id:1,
+      nombre:"Pendiente",
+      color:"label-pendiente"
+    },{
+      _id:2,
       nombre:"Cortado",
       color:"label-cortado"
 
@@ -22,19 +42,15 @@ export class EstadoPedidoService {
       _id:3,
       nombre:"Terminado",
       color:"label-terminado"
-    },{
-      _id:4,
-      nombre:"Notificado",
-      color:"label-notificado"
-    },{
-      _id:5,
-     nombre:"Entregado",
-      color:"label-entregado"
     }];
     return estados;
   }
+  getEstadoProducto(id:number){
+    let estado:Estado= this.estadoProducto().find(x=>x._id==id);
+    return estado;
+  }
   getEstado(id:number):Estado{
-   let estado:Estado= this.estadoPedidos().find(x=>x._id=id);
+   let estado:Estado= this.estadoPedidos().find(x=>x._id==id);
    return estado;
   }
  
