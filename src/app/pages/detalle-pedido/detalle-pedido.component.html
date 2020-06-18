@@ -14,7 +14,7 @@
                 <div class="form-group row">
                     <div class="col-10">
                         <label for="estado" class="col-form-label">Estado:</label>
-                          <select [(ngModel)]="pedido.estado" name="estado">
+                          <select (change)="entregando()" [(ngModel)]="pedido.estado" name="estado">
                               <option value="">Seleccionar</option>
                               <option *ngFor="let e of _estadoServicio.estadoPedidos()" [value]="e._id">{{e.nombre}}</option>
                     </select>
@@ -34,7 +34,7 @@
                   </div>
                   <div class="form-group row">
                       <div class="col-sm-8">
-                    <label *ngIf="pedido.senia" for="cobrar" class="col-form-label" style="color:orangered">Total a cobrar: ${{pedido.total-pedido.senia}}</label>
+                    <label *ngIf="pedido.senia" for="cobrar" class="col-form-label" [ngClass]="totalcobrar==0?pagado:nopago">Total a cobrar: ${{totalcobrar}}</label>
                     <label *ngIf="!pedido.senia" for="cobrar" class="col-form-label" style="color:orangered">Total a cobrar: ${{pedido.total}}</label>
                    
                 </div>
@@ -56,7 +56,7 @@
                         <tbody>
                             <tr *ngFor="let p of pedido.productos">
                                 <td>{{p.nombre}}</td>
-                                <td> <select [(ngModel)]="p.estado._id" >
+                                <td> <select (change)="cambiarEstadoProducto()" [(ngModel)]="p.estado._id" >
                                     <option value="">Seleccionar</option>
                                     <option *ngFor="let e of _estadoServicio.estadoProducto()" [value]="e._id">{{e.nombre}}</option>
                                 </select></td>

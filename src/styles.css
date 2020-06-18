@@ -46,3 +46,9 @@
     background-color: #FFFF00;
     color:#000000;
   }
+  .label-pagado {
+    color:green;
+  }
+  .label-nopagado {
+    color:red;
+  }

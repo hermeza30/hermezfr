@@ -6,7 +6,7 @@ export class Pedido {
     public _id:string;
     public productos: Producto[];
     public policia: Policia;
-    public estado:Estado;
+    public estado:number;
     public total:number;
     public descripcion: string;
     public fechaPedido:Date;
@@ -17,7 +17,7 @@ export class Pedido {
       _id: string,
       _prductos: Producto[],
       _policia: Policia,
-      _estado:Estado,
+      _estado:number,
       _total:number,
       _fechaPedido:Date,
       _fechaProbableEntrega?:Date,

@@ -53,5 +53,13 @@ export class EstadoPedidoService {
    let estado:Estado= this.estadoPedidos().find(x=>x._id==id);
    return estado;
   }
+  getEstadoProductoByString(nombre:string):Estado{
+    let estado:Estado= this.estadoProducto().find(x=>x.nombre==nombre);
+    return estado;
+  }
+  getEstadoPedidoByString(nombre:string):Estado{
+    let estado:Estado= this.estadoPedidos().find(x=>x.nombre==nombre);
+    return estado;
+  }
  
 }

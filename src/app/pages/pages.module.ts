@@ -15,10 +15,11 @@ import { VerPoliciaComponent } from './policia/ver-policia.component';
 import { PedidosComponent } from './pedidos/pedidos.component';
 import { BuscarPedidosComponent } from './pedidos/buscar-pedidos.component';
 import { DetallePedidoComponent } from './detalle-pedido/detalle-pedido.component';
+import { ModificarPedidosComponent } from './pedidos/modificar-pedidos.component';
 
 
 @NgModule({
-  declarations: [UsuarioComponent, PoliciaComponent, DashboardComponent,PagesComponent, ModificarPoliciaComponent, VerPoliciaComponent, PedidosComponent, BuscarPedidosComponent, DetallePedidoComponent],
+  declarations: [UsuarioComponent, PoliciaComponent, DashboardComponent,PagesComponent, ModificarPoliciaComponent, VerPoliciaComponent, PedidosComponent, BuscarPedidosComponent, DetallePedidoComponent, ModificarPedidosComponent],
   imports: [
     CommonModule,
     SharedModule,
@@ -29,6 +30,6 @@ import { DetallePedidoComponent } from './detalle-pedido/detalle-pedido.componen
     HttpClientModule
 
   ],
-  exports:[UsuarioComponent,PoliciaComponent,DashboardComponent,PagesComponent,ModificarPoliciaComponent,VerPoliciaComponent,PedidosComponent,DetallePedidoComponent]
+  exports:[UsuarioComponent,PoliciaComponent,DashboardComponent,PagesComponent,ModificarPoliciaComponent,VerPoliciaComponent,PedidosComponent,DetallePedidoComponent,ModificarPedidosComponent]
 })
 export class PagesModule { }

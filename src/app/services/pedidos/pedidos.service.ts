@@ -30,6 +30,12 @@ export class PedidosService {
       catchError((err) => throwError(err))
     );
   }
+  buscarPedidoById(id:string){
+    let url=URL_SERVICE+'/pedido/'+id;
+    return this.http.get(url).pipe(map((res:any)=>{
+      return res.pedido;
+    }),catchError(err=>throwError(err)));
+  }
   registrarPedido(pedido: Pedido) {
     pedido.fechaPedido = this._fechaService.construirFecha(pedido.fechaPedido);
     pedido.fechaProbableEntrega = this._fechaService.construirFecha(
@@ -63,7 +69,7 @@ export class PedidosService {
   }
   actualizarPedido(pedido: Pedido) {
     let url = URL_SERVICE + '/pedido/' + pedido._id;
-
+    pedido.fechaRealEntrega=this._fechaService.construirFecha(pedido.fechaRealEntrega);
     return this.http.put(url, pedido).pipe(
       map((res: any) => {
         swal(

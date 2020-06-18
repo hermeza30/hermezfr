@@ -31,9 +31,10 @@
                             <input formControlName="fechape" type="date" id="lastName" class="form-control" placeholder="12n">
                             <small *ngIf="form.invalid && getFecha().errors" class="form-control-feedback" style="color:red"> Ingrese la fecha probable de entrega </small> 
                         </div>
-                        <div class="form-group col-6">
+                        <div class="form-group col-6" [ngClass]="form.invalid?_errorService.error:''">
                             <label class="control-label">Seña</label>
                             <input formControlName="senia" type="text" class="form-control" placeholder="seña">
+                            <small  class="form-control-feedback" style="color:red"> La seña debe ser menor al total de pedido </small> 
                         </div>
                     </div>
 

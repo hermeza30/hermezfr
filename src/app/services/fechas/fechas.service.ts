@@ -8,7 +8,6 @@ export class FechasService {
   constructor() { }
   construirFecha(fecha:any):Date{
     if(typeof fecha==="string" ){
-      console.log(fecha)
       let res = fecha.split('-');
       let anio = +res[0];
       let mes = +res[1];

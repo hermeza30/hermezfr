@@ -9,6 +9,7 @@ import { VerPoliciaComponent } from './policia/ver-policia.component';
 import { AdminGuard } from '../services/service.index';
 import { PedidosComponent } from './pedidos/pedidos.component';
 import { BuscarPedidosComponent } from './pedidos/buscar-pedidos.component';
+import { ModificarPedidosComponent } from './pedidos/modificar-pedidos.component';
 const pagesRoutes:Routes=[
     {path:'',component:PagesComponent,canActivate:[LoginguardGuard],
 children:[
@@ -19,6 +20,7 @@ children:[
     {path:'modificar/:id',component:ModificarPoliciaComponent,data:{titulo:"Modificar Policía"}},
     {path:'ver/:id',component:VerPoliciaComponent,data:{titulo:"Ver Policía"}},
     {path:'dashboard',component:DashboardComponent,data:{titulo:"Dashboard"}},
+    {path:'modificar-pedido/:id',component:ModificarPedidosComponent,data:{titulo:"Modificar Pedido"}},
 ]}
 ];
 
