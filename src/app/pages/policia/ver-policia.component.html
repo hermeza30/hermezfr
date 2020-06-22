@@ -2,5 +2,7 @@
 <app-body *ngIf="policia" [policiacuerpo]="policia"  [ver]="ver"></app-body>
 
 <div class="float-md-right">
+  <button type="button" [routerLink]="['/buscar-pedido']" class="btn btn-warning">Pedidos</button>
     <button type="button" class="btn btn-dark" (click)="volver()">Volver</button>
+
   </div>

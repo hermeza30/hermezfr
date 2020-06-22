@@ -14,9 +14,9 @@
                 <div class="form-group row">
                     <div class="col-10">
                         <label for="estado" class="col-form-label">Estado:</label>
-                          <select (change)="entregando()" [(ngModel)]="pedido.estado" name="estado">
+                          <select [(ngModel)]="pedido.estado" (change)="entregando()"  name="estado">
                               <option value="">Seleccionar</option>
-                              <option *ngFor="let e of _estadoServicio.estadoPedidos()" [value]="e._id">{{e.nombre}}</option>
+                              <option *ngFor="let e of _estadoServicio.estadoPedidos()" [ngValue]="e._id">{{e.nombre}}</option>
                     </select>
                     </div>
                 </div>
@@ -47,6 +47,7 @@
                             <th>Estado                     
                             </th>
                             <th>Talle</th>
+                            <th>Observacion</th>
                             <th>Cantidad</th>
                             <th>Total</th>
                             <th></th>
@@ -57,12 +58,12 @@
                                 <td>{{p.nombre}}</td>
                                 <td> <select (change)="cambiarEstadoProducto()" [(ngModel)]="p.estado._id" >
                                     <option value="">Seleccionar</option>
-                                    <option *ngFor="let e of _estadoServicio.estadoProducto()" [value]="e._id">{{e.nombre}}</option>
+                                    <option *ngFor="let e of _estadoServicio.estadoProducto()" [ngValue]="e._id">{{e.nombre}}</option>
                                 </select></td>
                                 <td>{{p.talle}}</td>
+                                <td>{{p.descripcion}}</td>
                                 <td>{{p.cantidad}}</td>
                                 <td><strong>$</strong>{{p.preciocantidad}}</td>
-                                <td></td>
                                 <td></td>
                             </tr>
                         </tbody>

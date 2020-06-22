@@ -22,7 +22,9 @@ export class DetallePedidoComponent implements OnInit {
   ngOnInit(): void {}
   actualizar() {
     this.obtenerEstado();
-    this._pedidoService.actualizarPedido(this.pedido).subscribe((res) => {});
+    if(this.validandoEstados()){
+      this._pedidoService.actualizarPedido(this.pedido).subscribe((res) => {});
+    }
   }
   obtenerEstado() {
     for (const iterator of this.pedido.productos) {
@@ -41,11 +43,28 @@ export class DetallePedidoComponent implements OnInit {
   }
   entregando(){
     let idEntregado=this._estadoServicio.getEstadoPedidoByString("Entregado")._id;
+
     if(idEntregado==this.pedido.estado){
       let fecha=new Date();
       this.pedido.fechaRealEntrega=fecha;
     }else{
       this.pedido.fechaRealEntrega=null;
     }
+  }
+  validandoEstados(){
+    let idPendiente=this._estadoServicio.getEstadoProductoByString("Pendiente")._id;
+    let idCortado=this._estadoServicio.getEstadoProductoByString("Cortado")._id;
+    let idEntregado=this._estadoServicio.getEstadoPedidoByString("Entregado")._id;
+    let idTerminado=this._estadoServicio.getEstadoPedidoByString("Terminado")._id;
+
+    if(this.pedido.productos.length>0){
+      for (const it of this.pedido.productos) {
+          if((this.pedido.estado===idEntregado||this.pedido.estado===idTerminado)&&(it.estado._id===idPendiente||it.estado._id===idCortado)){
+            swal("Verificar","El pedido no puede pasar a terminado porque hay algun producto que esta pendiente de terminarse","warning");
+            return false;
+          }
+      }
+    }
+    return true;
   }
 }

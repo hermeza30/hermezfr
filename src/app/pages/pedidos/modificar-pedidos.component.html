@@ -20,7 +20,7 @@
                     <div class="form-group row">
                         <div class="col-sm-12">
                         <label for="senia">Seña: $</label>
-                          <input [(ngModel)]="pedido.senia" type="number"  class="col-4 form-control"   name="senia">
+                          <input [(ngModel)]="pedido.senia" type="number"  class="col-2 form-control"   name="senia">
                         </div>
                     </div>
                     <div class="form-group row">
@@ -32,8 +32,9 @@
                       <div class="form-group row">
                           <div class="col-sm-6">
                               <label for="fechaProbableEntrega" >Fecha probable de entrega:</label>
-                                        <input matInput [matDatepicker]="mipicker" [(ngModel)]="pedido.fechaProbableEntrega " name="fecha"
-                                        (dateInput)="mostrarFecha('input', $event)" (dateChange)="mostrarFecha('input', $event)" >
+                                        <input matInput [matDatepicker]="mipicker" [(ngModel)]="fecha " name="fecha"
+                                        (ngModelChange)="cambiando($event)"
+                                        >
                                 <mat-datepicker-toggle matSuffix [for]="mipicker"></mat-datepicker-toggle>
                                 <mat-datepicker #mipicker></mat-datepicker>
                           </div>
@@ -41,7 +42,9 @@
                       <app-agregar-producto (total)="cambiandoDatosDelPedido($event)" [productospedidos]="pedido.productos"></app-agregar-producto>
                       <div class="form-actions">
                         <div class="float-right">
-                            <button type="button" (click)="modificarPedido()" class="btn btn-primary"> <i class="fa fa-plus"></i> Guardar</button>
+                            <button type="button" (click)="modificarPedido()" class="btn btn-primary">Guardar</button>
+                            <button type="button" [routerLink]="['/buscar-pedido']" class="btn btn-dark">Volver</button>
+                        
                         </div>
                     </div>
                     </form>

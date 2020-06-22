@@ -40,6 +40,7 @@ export class PedidosService {
       pedido.fechaProbableEntrega
     );
     let url = URL_SERVICE + '/pedido';
+    url+="/?token="+this._usuarioService.token;
     return this.http.post(url, pedido).pipe(
       map((res: any) => {
         swal(
@@ -67,6 +68,7 @@ export class PedidosService {
   }
   actualizarPedido(pedido: Pedido) {
     let url = URL_SERVICE + '/pedido/' + pedido._id;
+    url+="/?token="+this._usuarioService.token;
     pedido.fechaRealEntrega=pedido.fechaRealEntrega?this._fechaService.construirFecha(pedido.fechaRealEntrega):null;
     return this.http.put(url, pedido).pipe(
       map((res: any) => {

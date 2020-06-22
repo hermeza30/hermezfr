@@ -20,7 +20,7 @@ children:[
     {path:'buscar-pedido',component:BuscarPedidosComponent,data:{titulo:"Buscar Pedidos"}},
     {path:'modificar/:id',component:ModificarPoliciaComponent,data:{titulo:"Modificar Policía"}},
     {path:'ver/:id',component:VerPoliciaComponent,data:{titulo:"Ver Policía"}},
-    {path:'dashboard',component:DashboardComponent,data:{titulo:"Dashboard"}},
+    {path:'dashboard',component:DashboardComponent,data:{titulo:"Buscar Policia"}},
     {path:'modificar-pedido/:id',component:ModificarPedidosComponent,data:{titulo:"Modificar Pedido"}},
     {path:'categoria',component:CategoriaComponent,data:{titulo:"Productos"}},
 
