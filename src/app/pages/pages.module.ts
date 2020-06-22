@@ -16,10 +16,12 @@ import { PedidosComponent } from './pedidos/pedidos.component';
 import { BuscarPedidosComponent } from './pedidos/buscar-pedidos.component';
 import { DetallePedidoComponent } from './detalle-pedido/detalle-pedido.component';
 import { ModificarPedidosComponent } from './pedidos/modificar-pedidos.component';
-
+import { CategoriaComponent } from './categoria/categoria.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
 
 @NgModule({
-  declarations: [UsuarioComponent, PoliciaComponent, DashboardComponent,PagesComponent, ModificarPoliciaComponent, VerPoliciaComponent, PedidosComponent, BuscarPedidosComponent, DetallePedidoComponent, ModificarPedidosComponent],
+  declarations: [UsuarioComponent, PoliciaComponent, DashboardComponent,PagesComponent, ModificarPoliciaComponent, VerPoliciaComponent, PedidosComponent, BuscarPedidosComponent, DetallePedidoComponent, ModificarPedidosComponent, CategoriaComponent],
   imports: [
     CommonModule,
     SharedModule,
@@ -27,8 +29,10 @@ import { ModificarPedidosComponent } from './pedidos/modificar-pedidos.component
     FormsModule,
     ReactiveFormsModule,
     ComponentsModule,
-    HttpClientModule
-
+    HttpClientModule,
+    MatDatepickerModule,
+    MatMomentDateModule,
+    
   ],
   exports:[UsuarioComponent,PoliciaComponent,DashboardComponent,PagesComponent,ModificarPoliciaComponent,VerPoliciaComponent,PedidosComponent,DetallePedidoComponent,ModificarPedidosComponent]
 })

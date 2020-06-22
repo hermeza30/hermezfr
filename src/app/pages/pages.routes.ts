@@ -10,17 +10,20 @@ import { AdminGuard } from '../services/service.index';
 import { PedidosComponent } from './pedidos/pedidos.component';
 import { BuscarPedidosComponent } from './pedidos/buscar-pedidos.component';
 import { ModificarPedidosComponent } from './pedidos/modificar-pedidos.component';
+import { CategoriaComponent } from './categoria/categoria.component';
 const pagesRoutes:Routes=[
     {path:'',component:PagesComponent,canActivate:[LoginguardGuard],
 children:[
     {path:'usuario',component:UsuarioComponent,canActivate:[AdminGuard],data:{titulo:"Usuarios"}},
     {path:'policia',component:PoliciaComponent,data:{titulo:"Registrar Policía"}},
-    {path:'pedido',component:PedidosComponent,data:{titulo:"Pedidos"}},
+    {path:'pedido',component:PedidosComponent,data:{titulo:"Registrar Pedido"}},
     {path:'buscar-pedido',component:BuscarPedidosComponent,data:{titulo:"Buscar Pedidos"}},
     {path:'modificar/:id',component:ModificarPoliciaComponent,data:{titulo:"Modificar Policía"}},
     {path:'ver/:id',component:VerPoliciaComponent,data:{titulo:"Ver Policía"}},
     {path:'dashboard',component:DashboardComponent,data:{titulo:"Dashboard"}},
     {path:'modificar-pedido/:id',component:ModificarPedidosComponent,data:{titulo:"Modificar Pedido"}},
+    {path:'categoria',component:CategoriaComponent,data:{titulo:"Productos"}},
+
 ]}
 ];
 

@@ -1,10 +1,9 @@
-import { Component, OnInit, Output , EventEmitter} from '@angular/core';
-import { PedidosService } from '../../../services/pedidos/pedidos.service';
+import { Component, OnInit, Output , EventEmitter, Input} from '@angular/core';
+import { PedidosService } from '../../../services/service.index';
 import { Producto } from '../../../models/producto.model';
 import { Categoria } from '../../../models/categoria.model';
 import { Observable, Subscriber, Subscription } from 'rxjs';
-import { Estado } from 'src/app/models/estado.model';
-import { EstadoPedidoService } from '../../../services/estado/estado-pedido.service';
+import { EstadoPedidoService } from '../../../services/service.index';
 
 @Component({
   selector: 'app-agregar-producto',
@@ -16,18 +15,23 @@ export class AgregarProductoComponent implements OnInit {
 public categoria:Categoria=new Categoria("","",null);
 public productos:Producto[]=[];
 public categorias:Categoria[];
-public talle:string;
+public talle:number;
 public descripcion:string;
 public cantidad:number=1;
 public total:number=0;
 public suscription:Subscription;
 @Output('productos') emitproductos:EventEmitter<Producto[]>=new EventEmitter();
-
+@Input('productospedidos') productospedidos:Producto[]=[];
+@Output('total') emitTotal:EventEmitter<number>=new EventEmitter();
   constructor(public _pedidoService:PedidosService, public _estadoService:EstadoPedidoService) { 
 
   }
 
   ngOnInit(): void {
+    if(this.productospedidos.length>0){
+      this.productos=this.productospedidos;
+      this.totalPrecioCantidad();
+    }
     this.cargarCategorias();
   }
   cargarCategorias(){
@@ -40,14 +44,13 @@ public suscription:Subscription;
   agregarProducto(){
     this.suscription=this.observableProducto().subscribe(
       productos=>this.emitproductos.emit(productos),
-      error=>console.log("Error al agregar producto",error)
-
+      error=>swal('Registrar pedido','Debe seleccionar producto.','warning')
     )
   }
   observableProducto(){
     return new Observable((observer:Subscriber<any>)=>{
 
-      if(this.categoria && this.talle.length>0&&this.cantidad>0){
+      if(this.categoria && this.talle>0&&this.cantidad>0){
         this.productos.push(this.crearProducto());
         this.totalPrecioCantidad();
         this.cantidad=1;
@@ -65,6 +68,7 @@ public suscription:Subscription;
     this.total=this.productos.length>0? this.productos.reduce(function(acumulador:number,producto){
       return acumulador+producto.preciocantidad;
      },0):0;
+     this.emitTotal.emit(this.total);
   }
   removerProducto(c:Producto){
     let i:number=this.productos.indexOf(c);

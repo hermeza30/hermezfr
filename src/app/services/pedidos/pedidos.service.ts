@@ -6,8 +6,6 @@ import { catchError, map } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { Pedido } from '../../models/pedido.model';
 import { FechasService } from '../fechas/fechas.service';
-import { createInject } from '@angular/compiler/src/core';
-import { Categoria } from '../../models/categoria.model';
 
 @Injectable({
   providedIn: 'root',
@@ -69,7 +67,7 @@ export class PedidosService {
   }
   actualizarPedido(pedido: Pedido) {
     let url = URL_SERVICE + '/pedido/' + pedido._id;
-    pedido.fechaRealEntrega=this._fechaService.construirFecha(pedido.fechaRealEntrega);
+    pedido.fechaRealEntrega=pedido.fechaRealEntrega?this._fechaService.construirFecha(pedido.fechaRealEntrega):null;
     return this.http.put(url, pedido).pipe(
       map((res: any) => {
         swal(

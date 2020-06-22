@@ -88,4 +88,7 @@ export class BuscarPedidosComponent implements OnInit {
     this.pedidoSeleccionado = p;
    
   }
+  eliminar(id:string){
+    console.log(id);
+  }
 }

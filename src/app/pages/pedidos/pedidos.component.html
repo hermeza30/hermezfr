@@ -34,7 +34,7 @@
                         <div class="form-group col-6" [ngClass]="form.invalid?_errorService.error:''">
                             <label class="control-label">Seña</label>
                             <input formControlName="senia" type="text" class="form-control" placeholder="seña">
-                            <small  class="form-control-feedback" style="color:red"> La seña debe ser menor al total de pedido </small> 
+                            <small  class="form-control-feedback" style="color:red"> La seña debe ser menor al monto total de pedido </small> 
                         </div>
                     </div>
 
@@ -50,7 +50,7 @@
             <button type="button" routerLink="/dashboard" class="btn btn-dark waves-effect waves-light m-r-10">Volver</button>
         </div>
         <div class="float-right">
-            <button type="button"(click)="registrar()" class="btn btn-success waves-effect waves-light m-r-10">Registrar</button>
+            <button type="button"(click)="registrar()" class="btn btn-primary waves-effect waves-light m-r-10">Guardar</button>
         </div>
     </div>
 </div>

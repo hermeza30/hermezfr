@@ -70,6 +70,7 @@
                         <th>Estado</th>
                         <th>Detalle</th>
                         <th>Modificar</th>
+                        <th>Eliminar</th>
 
                     </thead>
                     <tbody>
@@ -83,6 +84,7 @@
                             </td>
                             <td><button (click)="seleccionarPedido(p)" type="button" class="btn btn-dark"> Detalle</button></td>
                             <td><button  [routerLink]="['/modificar-pedido', p._id]"  type="button" class="btn btn-warning"> Modificar</button></td>
+                            <td><button  (click)="eliminar(p._id)" type="button" class="btn btn-danger"> Eliminar</button></td>
                           
                         </tr>
                     </tbody>

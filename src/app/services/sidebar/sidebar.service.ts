@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class SidebarService {
 public menu:any=[{
   titulo:'Policías',
-  icono:'mdi mdi-checkbox-blank-circle',
+  icono:'mdi mdi-plus-circle-outline',
   src:'assets/images/users/policia-fa.jpg',
   submenu:[
     {titulo:"Buscar",url:'/dashboard'},
@@ -20,6 +20,12 @@ public menu:any=[{
     {titulo:"Buscar",url:'/buscar-pedido'},
     {titulo:"Registrar",url:'/pedido'},
 
+  ]
+},{
+  titulo:'Productos',
+  icono:'mdi mdi-plus-circle-outline',
+  submenu:[
+    {titulo:"Producto",url:'/categoria'}
   ]
 }]
   constructor() { }

@@ -5,7 +5,7 @@ export class Producto {
   public categoria:Categoria;
   public nombre: string;
   public descripcion: string;
-  public talle: string;
+  public talle: number;
   public cantidad:number;
   public preciocantidad:number;
   public estado:Estado;
@@ -14,7 +14,7 @@ export class Producto {
     _categoria?:Categoria,
     _nombre?: string,
     _descripcion?: string,
-    _talle?:string,
+    _talle?:number,
     _cantidad?:number,
     _preciocantidad?:number,
     _estado?:Estado
