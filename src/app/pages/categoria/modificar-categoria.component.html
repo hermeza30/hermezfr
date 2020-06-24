@@ -1,0 +1,49 @@
+<div *ngIf="categoria" class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <form>
+          <h3>Modificar</h3>
+          <div class="col-4 form-group">
+            <label for="producto">Producto: </label>
+            <input
+              [(ngModel)]="categoria.nombre"
+              type="text"
+              class="form-control"
+              name="nombre"
+            />
+          </div>
+          <div class="col-4 form-group">
+            <label for="precio">Precio: </label>
+            <input
+              [(ngModel)]="categoria.precio"
+              type="number"
+              class="form-control"
+              name="precio"
+            />
+          </div>
+          <div class="col-4 form-group">
+            <label for="descripcion">Descripción: </label>
+            <input
+              [(ngModel)]="categoria.descripcion"
+              type="text"
+              class="form-control"
+              name="descripcion"
+            />
+          </div>
+          <div class="col-10">
+            <div class="float-right form-group">
+              <button
+                type="button"
+                (click)="modificar()"
+                class="btn btn-primary"
+              >
+                Modificar
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,1 +1,66 @@
-<p>categoria works!</p>
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title">Productos</h3>
+        <form [formGroup]="form" (ngSubmit)="registrar()">
+          <div class="col-4 form-group">
+            <label for="nombre">Nombre</label>
+            <input
+              type="text"
+              formControlName="nombre"
+              id="nombre"
+              class="form-control"
+            />
+          </div>
+          <div class="col-2 form-group">
+            <label for="precio">Precio</label>
+            <input
+              type="number"
+              formControlName="precio"
+              id="precio"
+              class="form-control"
+            />
+          </div>
+          <div class="col-6 form-group">
+            <label for="descripcion">Descripción</label>
+            <input
+              type="text"
+              formControlName="descripcion"
+              id="descripcion"
+              class="form-control"
+            />
+          </div>
+          <div class="col-10">
+            <div class="float-right form-group">
+              <button type="submit" class="btn btn-primary">Registrar</button>
+            </div>
+          </div>
+        </form>
+        <table class="table  table-bordered">
+          <thead>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Editar</th>
+            <th>Eliminar</th>
+
+          </thead>
+          <tbody>
+            <tr *ngFor="let n of categorias">
+              <td>{{ n.nombre }}</td>
+              <td>{{ n.precio }}</td>
+              <td>
+                <button (click)="seleccionandoProducto(n)">Modificar</button>
+              </td>
+              <td>
+                <button (click)="eliminar(n._id)">Eliminar</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+  </div>
+</div>
+<app-modificar-categoria [categoria]="categoria"></app-modificar-categoria> 

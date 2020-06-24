@@ -6,6 +6,7 @@ import { catchError, map } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { Pedido } from '../../models/pedido.model';
 import { FechasService } from '../fechas/fechas.service';
+import { Categoria } from 'src/app/models/categoria.model';
 
 @Injectable({
   providedIn: 'root',
@@ -51,6 +52,39 @@ export class PedidosService {
         return res.pedidosave;
       }),
       catchError((err) => throwError(err))
+    );
+  }
+  registrarCategoria(cat:Categoria){
+    let url=URL_SERVICE+'/categoria';
+    url+="/?token="+this._usuarioService.token;
+   return this.http.post(url,cat).pipe(
+      map((res:any)=>{
+        swal("Registrar categoría", "Se registró correctamente la categoría"+res.categoria.nombre)
+        return res
+      }),
+      catchError(err=>throwError(err))
+    );
+  }
+  actualizarCategoria(cat:Categoria){
+    let url=URL_SERVICE+'/categoria/'+cat._id;
+    url+="/?token="+this._usuarioService.token;
+   return this.http.put(url,cat).pipe(
+      map((res:any)=>{
+        swal("Modificar categoría", "Se modificó correctamente la categoría"+res.categoria.nombre)
+        return res;
+      }),
+      catchError(err=>throwError(err))
+    );
+  }
+  eliminarCategoria(id:string){
+    let url=URL_SERVICE+'/categoria/'+id;
+    url+="/?token="+this._usuarioService.token;
+   return this.http.delete(url).pipe(
+      map((res:any)=>{
+        swal("Eliminar categoría", "Se eliminó correctamente la categoría"+res.categoria.nombre)
+        return res;
+      }),
+      catchError(err=>throwError(err))
     );
   }
   cargarPedidos(desde: number, tabla: string, param: any) {
