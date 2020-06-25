@@ -11,7 +11,8 @@ export class DolarService {
     let url='https://www.dolarsi.com/api/api.php?type=valoresprincipales';
     return this.http.get(url).pipe(
       map((res:any)=>{
-       return  res.dolar
+        console.log(res);
+       return  res;
       }));
   }
 }

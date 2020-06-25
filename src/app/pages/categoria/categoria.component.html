@@ -33,7 +33,7 @@
           </div>
           <div class="col-10">
             <div class="float-right form-group">
-              <button type="submit" class="btn btn-primary">Registrar</button>
+              <button type="submit" class="btn btn-info">Registrar</button>
             </div>
           </div>
         </form>
@@ -50,10 +50,10 @@
               <td>{{ n.nombre }}</td>
               <td>{{ n.precio }}</td>
               <td>
-                <button (click)="seleccionandoProducto(n)">Modificar</button>
+                <button class="btn btn-warning" (click)="seleccionandoProducto(n)">Modificar</button>
               </td>
               <td>
-                <button (click)="eliminar(n._id)">Eliminar</button>
+                <button class="btn btn-danger" (click)="eliminar(n._id)">Eliminar</button>
               </td>
             </tr>
           </tbody>
