@@ -1,3 +1,4 @@
+export { VerificaTokenGuard } from './guards/verifica-token.guard';
 export { EstadoPedidoService } from './estado/estado-pedido.service';
 export { ErrorService } from './error/error.service';
 export { FechasService } from './fechas/fechas.service';
@@ -8,4 +9,3 @@ export { ComunicationComponentsService } from './comunicationComponents/comunica
 export { UsuarioService } from './usuario/usuario.service';
 export { SidebarService } from './sidebar/sidebar.service';
 export { LoginguardGuard } from './guards/loginguard.guard';
-

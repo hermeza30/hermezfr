@@ -11,8 +11,9 @@ import { PedidosComponent } from './pedidos/pedidos.component';
 import { BuscarPedidosComponent } from './pedidos/buscar-pedidos.component';
 import { ModificarPedidosComponent } from './pedidos/modificar-pedidos.component';
 import { CategoriaComponent } from './categoria/categoria.component';
+import { VerificaTokenGuard } from '../services/service.index';
 const pagesRoutes:Routes=[
-    {path:'',component:PagesComponent,canActivate:[LoginguardGuard],
+    {path:'',component:PagesComponent,canActivate:[LoginguardGuard,VerificaTokenGuard],
 children:[
     {path:'usuario',component:UsuarioComponent,canActivate:[AdminGuard],data:{titulo:"Usuarios"}},
     {path:'policia',component:PoliciaComponent,data:{titulo:"Registrar Policía"}},
