@@ -22,8 +22,7 @@ export class UsuarioService {
     url += '/?token=' + this.token;
     return this.http.get(url).pipe(
       map((res: any) => {
-        this.token = res.token;console.log(this.token);
-
+        this.token = res.token;
         localStorage.setItem('token', this.token);
         return true;
       }),
