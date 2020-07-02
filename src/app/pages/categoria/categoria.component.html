@@ -5,19 +5,21 @@
         <h3 class="card-title">Productos</h3>
         <form [formGroup]="form" (ngSubmit)="registrar()">
           <div class="col-4 form-group">
-            <label for="nombre">Nombre</label>
+            <label for="nombre">Nombre *</label>
             <input
               type="text"
               formControlName="nombre"
               id="nombre"
+              placeholder="nombre"
               class="form-control"
             />
           </div>
           <div class="col-2 form-group">
-            <label for="precio">Precio</label>
+            <label for="precio">Precio *</label>
             <input
               type="number"
               formControlName="precio"
+              placeholder="precio"
               id="precio"
               class="form-control"
             />
@@ -28,6 +30,7 @@
               type="text"
               formControlName="descripcion"
               id="descripcion"
+              placeholder="descripción"
               class="form-control"
             />
           </div>
@@ -41,6 +44,7 @@
           <thead>
             <th>Nombre</th>
             <th>Precio</th>
+            <th>fecha</th>  
             <th>Editar</th>
             <th>Eliminar</th>
 
@@ -49,6 +53,7 @@
             <tr *ngFor="let n of categorias">
               <td>{{ n.nombre }}</td>
               <td>{{ n.precio }}</td>
+              <td>{{n.fechaRegistro|date:'dd/MM/yyyy'}}</td>
               <td>
                 <button class="btn btn-warning" (click)="seleccionandoProducto(n)">Modificar</button>
               </td>

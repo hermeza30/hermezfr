@@ -9,3 +9,4 @@ export { ComunicationComponentsService } from './comunicationComponents/comunica
 export { UsuarioService } from './usuario/usuario.service';
 export { SidebarService } from './sidebar/sidebar.service';
 export { LoginguardGuard } from './guards/loginguard.guard';
+export { ValidacionFormService } from './validacion/validacion-form.service';

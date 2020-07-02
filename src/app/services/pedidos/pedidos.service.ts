@@ -59,8 +59,8 @@ export class PedidosService {
     url+="/?token="+this._usuarioService.token;
    return this.http.post(url,cat).pipe(
       map((res:any)=>{
-        swal("Registrar categoría", "Se registró correctamente la categoría"+res.categoria.nombre)
-        return res
+        swal("Registrar categoría", "Se registró correctamente la categoría"+res.categoria.nombre,"success")
+        return res;
       }),
       catchError(err=>throwError(err))
     );

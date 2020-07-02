@@ -27,6 +27,12 @@ public menu:any=[{
   submenu:[
     {titulo:"Producto",url:'/categoria'}
   ]
+},{
+  titulo:'Materia prima',
+  icono:'mdi mdi-plus-circle-outline',
+  submenu:[
+    {titulo:"Materia prima",url:'/materia-prima'}
+  ]
 }]
   constructor() { }
 }

@@ -40,8 +40,9 @@ export class CategoriaComponent implements OnInit {
     console.log(this.form)
     if(this.form.invalid){
       swal("Registrar producto","No se puede registrar producto","warning");
+      return;
     }
-    let cat:Categoria=new Categoria(null,this.form.value.nombre,this.form.value.precio,this.form.value.descripcion);
+    let cat:Categoria=new Categoria(null,this.form.value.nombre,this.form.value.precio,this.form.value.descripcion,new Date());
     this._categorias.registrarCategoria(cat).subscribe(res=>{this.form.reset();this.cargarCategorias();});
   }
 

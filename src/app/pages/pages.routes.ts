@@ -12,6 +12,7 @@ import { BuscarPedidosComponent } from './pedidos/buscar-pedidos.component';
 import { ModificarPedidosComponent } from './pedidos/modificar-pedidos.component';
 import { CategoriaComponent } from './categoria/categoria.component';
 import { VerificaTokenGuard } from '../services/service.index';
+import { MateriaPrimaComponent } from './materia-prima/materia-prima.component';
 const pagesRoutes:Routes=[
     {path:'',component:PagesComponent,canActivate:[LoginguardGuard,VerificaTokenGuard],
 children:[
@@ -24,6 +25,8 @@ children:[
     {path:'dashboard',component:DashboardComponent,data:{titulo:"Buscar Policia"}},
     {path:'modificar-pedido/:id',component:ModificarPedidosComponent,data:{titulo:"Modificar Pedido"}},
     {path:'categoria',component:CategoriaComponent,data:{titulo:"Productos"}},
+    {path:'materia-prima',component:MateriaPrimaComponent,data:{titulo:"Materia prima"}},
+
 
 ]}
 ];

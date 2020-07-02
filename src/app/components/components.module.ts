@@ -8,11 +8,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AgregarClienteComponent } from './agregar-cliente/agregar-cliente/agregar-cliente.component';
 import { AgregarProductoComponent } from './agregar-producto/agregar-producto/agregar-producto.component';
+import { DetalleMateriaPrimaComponent } from './materia-prima/detalle-materia-prima.component';
 
 
 
 @NgModule({
-  declarations: [PersonaComponent, BusquedaComponent,GaribaldinaComponent, BodyComponent, AgregarClienteComponent, AgregarProductoComponent],
+  declarations: [PersonaComponent, BusquedaComponent,GaribaldinaComponent, BodyComponent, AgregarClienteComponent, AgregarProductoComponent, DetalleMateriaPrimaComponent],
   imports: [
     CommonModule,FormsModule,ReactiveFormsModule,RouterModule 
   ],

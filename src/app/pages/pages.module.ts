@@ -20,9 +20,11 @@ import { CategoriaComponent } from './categoria/categoria.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { ModificarCategoriaComponent } from './categoria/modificar-categoria.component';
+import { MateriaPrimaComponent } from './materia-prima/materia-prima.component';
+import { ValidacionDirective } from '../directivas/validacion.directive';
 
 @NgModule({
-  declarations: [UsuarioComponent, PoliciaComponent, DashboardComponent,PagesComponent, ModificarPoliciaComponent, VerPoliciaComponent, PedidosComponent, BuscarPedidosComponent, DetallePedidoComponent, ModificarPedidosComponent, CategoriaComponent, ModificarCategoriaComponent],
+  declarations: [UsuarioComponent, PoliciaComponent, DashboardComponent,PagesComponent, ModificarPoliciaComponent, VerPoliciaComponent, PedidosComponent, BuscarPedidosComponent, DetallePedidoComponent, ModificarPedidosComponent, CategoriaComponent, ModificarCategoriaComponent, MateriaPrimaComponent,ValidacionDirective],
   imports: [
     CommonModule,
     SharedModule,

@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
 import localeEsAr from '@angular/common/locales/es-AR';
 
+
 registerLocaleData(localeEsAr, 'es-Ar');
 
 @NgModule({
@@ -17,7 +18,6 @@ registerLocaleData(localeEsAr, 'es-Ar');
     AppComponent,
     RegisterComponent,
     LoginComponent,
-
   ],
   imports: [
     BrowserModule,
