@@ -9,7 +9,8 @@ export class ValidacionFormService {
     'nombre':"El nombre es requerido.",
     'email':"El mail es requerido.",
     'precio':'El precio es requerido',
-    'descripcion':'La descripcion es requerida'
+    'descripcion':'La descripcion es requerida',
+    'empresanombre':'El nombre de la empresa es requerido'
 
   }
   

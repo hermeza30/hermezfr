@@ -22,9 +22,10 @@ import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { ModificarCategoriaComponent } from './categoria/modificar-categoria.component';
 import { MateriaPrimaComponent } from './materia-prima/materia-prima.component';
 import { ValidacionDirective } from '../directivas/validacion.directive';
+import { ValidacionSubmitDirective } from '../directivas/validacion-submit.directive';
 
 @NgModule({
-  declarations: [UsuarioComponent, PoliciaComponent, DashboardComponent,PagesComponent, ModificarPoliciaComponent, VerPoliciaComponent, PedidosComponent, BuscarPedidosComponent, DetallePedidoComponent, ModificarPedidosComponent, CategoriaComponent, ModificarCategoriaComponent, MateriaPrimaComponent,ValidacionDirective],
+  declarations: [UsuarioComponent, PoliciaComponent, DashboardComponent,PagesComponent, ModificarPoliciaComponent, VerPoliciaComponent, PedidosComponent, BuscarPedidosComponent, DetallePedidoComponent, ModificarPedidosComponent, CategoriaComponent, ModificarCategoriaComponent, MateriaPrimaComponent,ValidacionDirective,ValidacionSubmitDirective],
   imports: [
     CommonModule,
     SharedModule,

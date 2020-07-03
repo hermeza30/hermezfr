@@ -13,10 +13,10 @@ import { DetalleMateriaPrimaComponent } from './materia-prima/detalle-materia-pr
 
 
 @NgModule({
-  declarations: [PersonaComponent, BusquedaComponent,GaribaldinaComponent, BodyComponent, AgregarClienteComponent, AgregarProductoComponent, DetalleMateriaPrimaComponent],
+  declarations: [PersonaComponent, BusquedaComponent,GaribaldinaComponent, BodyComponent, AgregarClienteComponent, AgregarProductoComponent, DetalleMateriaPrimaComponent,DetalleMateriaPrimaComponent],
   imports: [
     CommonModule,FormsModule,ReactiveFormsModule,RouterModule 
   ],
-  exports:[PersonaComponent,BusquedaComponent,GaribaldinaComponent,BodyComponent,AgregarProductoComponent,AgregarClienteComponent]
+  exports:[PersonaComponent,BusquedaComponent,GaribaldinaComponent,BodyComponent,AgregarProductoComponent,AgregarClienteComponent,DetalleMateriaPrimaComponent]
 })
 export class ComponentsModule { }
