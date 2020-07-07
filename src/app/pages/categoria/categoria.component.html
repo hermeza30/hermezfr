@@ -12,6 +12,7 @@
               id="nombre"
               placeholder="nombre"
               class="form-control"
+              appValidacion validacionid="nombre"
             />
           </div>
           <div class="col-2 form-group">
@@ -22,6 +23,8 @@
               placeholder="precio"
               id="precio"
               class="form-control"
+              appValidacion validacionid="precio"
+
             />
           </div>
           <div class="col-6 form-group">
@@ -32,11 +35,13 @@
               id="descripcion"
               placeholder="descripción"
               class="form-control"
-            />
+              appValidacion validacionid="descripcion"
+
+              />
           </div>
           <div class="col-10">
             <div class="float-right form-group">
-              <button type="submit" class="btn btn-info">Registrar</button>
+              <button type="submit" class="btn btn-info" appValidacionSubmit [validationControl]="form">Registrar</button>
             </div>
           </div>
         </form>

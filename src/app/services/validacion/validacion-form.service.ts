@@ -6,11 +6,12 @@ import { Injectable } from '@angular/core';
 export class ValidacionFormService {
   constructor() { }
   private errorMensajes={
-    'nombre':"El nombre es requerido.",
-    'email':"El mail es requerido.",
+    'nombre':"El nombre es requerido",
+    'email':"El mail es requerido",
     'precio':'El precio es requerido',
     'descripcion':'La descripcion es requerida',
-    'empresanombre':'El nombre de la empresa es requerido'
+    'empresanombre':'El nombre de la empresa es requerido',
+    'total':'El total es un valor requerido'
 
   }
   

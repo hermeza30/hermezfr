@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import{SidebarService,
   PoliciaService,PedidosService,FechasService,
-  UsuarioService,LoginguardGuard,AdminGuard,ErrorService,EstadoPedidoService,VerificaTokenGuard,ValidacionFormService} from './service.index';
+  UsuarioService,LoginguardGuard,AdminGuard,CompraService,ErrorService,EstadoPedidoService,VerificaTokenGuard,ValidacionFormService} from './service.index';
 
 
 @NgModule({
@@ -12,6 +12,6 @@ import{SidebarService,
     CommonModule,
     
   ],
-  providers:[SidebarService,PoliciaService,UsuarioService,LoginguardGuard,AdminGuard,PedidosService, FechasService,ErrorService,EstadoPedidoService,VerificaTokenGuard,ValidacionFormService]
+  providers:[SidebarService,PoliciaService,UsuarioService,LoginguardGuard,AdminGuard,PedidosService, FechasService,ErrorService,EstadoPedidoService,VerificaTokenGuard,ValidacionFormService, CompraService]
 })
 export class ServiceModule { }
