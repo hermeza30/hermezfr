@@ -43,7 +43,9 @@ export class MateriaPrimaComponent implements OnInit {
       return;
     }
     this.agregarItems();
-    
+    this._compraService.registrarCompra(this.compra).subscribe(res=>{
+      
+    })
   }
   registrarItem() {
     this.getItem().push(this.crearItem());
@@ -64,7 +66,7 @@ export class MateriaPrimaComponent implements OnInit {
       []
     );
     for (const it of this.getItem().value) {
-      let matPrima = new MateriaPrima(it.preciom, it.descripcion);
+      let matPrima = new MateriaPrima(it.precio, it.descripcion);
       this.compra.materiaPrima.push(matPrima);
     }
   }

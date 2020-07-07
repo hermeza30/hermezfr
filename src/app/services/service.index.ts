@@ -1,3 +1,4 @@
+export { CompraService } from './compras/compra.service';
 export { VerificaTokenGuard } from './guards/verifica-token.guard';
 export { EstadoPedidoService } from './estado/estado-pedido.service';
 export { ErrorService } from './error/error.service';
