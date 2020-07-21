@@ -1,3 +1,5 @@
+export { EmpleadoService } from './empleados/empleado.service';
+export { EncargueService } from './encargues/encargue.service';
 export { CompraService } from './compras/compra.service';
 export { VerificaTokenGuard } from './guards/verifica-token.guard';
 export { EstadoPedidoService } from './estado/estado-pedido.service';

@@ -45,6 +45,18 @@ export class EstadoPedidoService {
     }];
     return estados;
   }
+  public estadoEncargue(){
+    let estados:Estado[]=[{
+      _id:1,
+      nombre:"Entregado",
+      color:"label-pendiente"
+    },{
+      _id:2,
+      nombre:"Devuelvo",
+      color:"label-terminado"
+    }];
+    return estados;
+  }
   getEstadoProducto(id:number){
     let estado:Estado= this.estadoProducto().find(x=>x._id==id);
     return estado;
@@ -61,5 +73,10 @@ export class EstadoPedidoService {
     let estado:Estado= this.estadoPedidos().find(x=>x.nombre==nombre);
     return estado;
   }
+  getEstadoEncargue(id:number){
+    let estado:Estado= this.estadoEncargue().find(x=>x._id==id);
+    return estado;
+  }
+
  
 }

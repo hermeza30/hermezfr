@@ -8,7 +8,7 @@ import {
 } from '@angular/forms';
 import { MateriaPrima } from '../../models/materiaprima.model';
 import { Compra } from '../../models/compra.model';
-import { CompraService } from '../../services/compras/compra.service';
+import { CompraService } from '../../services/service.index';
 
 @Component({
   selector: 'app-materia-prima',
@@ -16,13 +16,14 @@ import { CompraService } from '../../services/compras/compra.service';
   styles: [],
 })
 export class MateriaPrimaComponent implements OnInit {
-  public listaMp: MateriaPrima[];
+  public listaCompra: Compra[];
   public compra: Compra;
   public form: FormGroup;
   constructor(public _compraService:CompraService) {}
 
   ngOnInit(): void {
     this.crearForm();
+    this.cargarCompras();
   }
   crearForm() {
     this.form = new FormGroup({
@@ -34,7 +35,6 @@ export class MateriaPrimaComponent implements OnInit {
 
   registrar() {
     if (this.form.invalid) {
-      console.log(this.form)
       swal(
         'Registrar compra',
         'Debe ingresar valores correspondientes',
@@ -44,7 +44,7 @@ export class MateriaPrimaComponent implements OnInit {
     }
     this.agregarItems();
     this._compraService.registrarCompra(this.compra).subscribe(res=>{
-      
+        this.listaCompra.push(res);
     })
   }
   registrarItem() {
@@ -68,9 +68,13 @@ export class MateriaPrimaComponent implements OnInit {
     for (const it of this.getItem().value) {
       let matPrima = new MateriaPrima(it.precio, it.descripcion);
       this.compra.materiaPrima.push(matPrima);
+
     }
   }
   eliminarItem(i) {
     this.getItem().removeAt(i);
+  }
+  cargarCompras(){
+    this._compraService.obtenerCompras().subscribe(res=>{this.listaCompra=res});
   }
 }

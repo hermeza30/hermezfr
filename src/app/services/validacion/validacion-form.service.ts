@@ -11,8 +11,10 @@ export class ValidacionFormService {
     'precio':'El precio es requerido',
     'descripcion':'La descripcion es requerida',
     'empresanombre':'El nombre de la empresa es requerido',
-    'total':'El total es un valor requerido'
-
+    'total':'El total es un valor requerido',
+    'codigo':'El código es un valor requerido',
+    'pago':'El pago es un valor requerido',
+    'cantidad':'La cantidad es un valor requerido'
   }
   
   getValidaciones(validationId:string){

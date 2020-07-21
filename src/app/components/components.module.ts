@@ -9,14 +9,15 @@ import { RouterModule } from '@angular/router';
 import { AgregarClienteComponent } from './agregar-cliente/agregar-cliente/agregar-cliente.component';
 import { AgregarProductoComponent } from './agregar-producto/agregar-producto/agregar-producto.component';
 import { DetalleMateriaPrimaComponent } from './materia-prima/detalle-materia-prima.component';
+import { AgregarEncargueComponent } from './agregar-encargue/agregar-encargue.component';
 
 
 
 @NgModule({
-  declarations: [PersonaComponent, BusquedaComponent,GaribaldinaComponent, BodyComponent, AgregarClienteComponent, AgregarProductoComponent, DetalleMateriaPrimaComponent,DetalleMateriaPrimaComponent],
+  declarations: [PersonaComponent, BusquedaComponent,GaribaldinaComponent, BodyComponent, AgregarClienteComponent, AgregarProductoComponent, DetalleMateriaPrimaComponent,DetalleMateriaPrimaComponent, AgregarEncargueComponent],
   imports: [
     CommonModule,FormsModule,ReactiveFormsModule,RouterModule 
   ],
-  exports:[PersonaComponent,BusquedaComponent,GaribaldinaComponent,BodyComponent,AgregarProductoComponent,AgregarClienteComponent,DetalleMateriaPrimaComponent]
+  exports:[PersonaComponent,BusquedaComponent,GaribaldinaComponent,BodyComponent,AgregarProductoComponent,AgregarClienteComponent,DetalleMateriaPrimaComponent, AgregarEncargueComponent]
 })
 export class ComponentsModule { }

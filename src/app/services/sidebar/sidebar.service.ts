@@ -28,10 +28,16 @@ public menu:any=[{
     {titulo:"Producto",url:'/categoria'}
   ]
 },{
-  titulo:'Materia prima',
+  titulo:'Compra',
   icono:'mdi mdi-plus-circle-outline',
   submenu:[
-    {titulo:"Materia prima",url:'/materia-prima'}
+    {titulo:"Compra",url:'/materia-prima'}
+  ]
+},{
+  titulo:'Encargue',
+  icono:'mdi mdi-plus-circle-outline',
+  submenu:[
+    {titulo:"Encargue",url:'/encargue'}
   ]
 }]
   constructor() { }

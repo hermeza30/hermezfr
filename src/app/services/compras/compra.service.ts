@@ -19,4 +19,9 @@ export class CompraService {
           return res.compra
       }),catchError(err=>throwError(err)));
   }
+  obtenerCompras(){
+    let url=URL_SERVICE+'/compra';
+
+    return this.http.get(url).pipe(map((res:any)=>{return res.compra}));
+  }
 }

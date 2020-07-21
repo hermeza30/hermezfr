@@ -13,6 +13,7 @@ import { ModificarPedidosComponent } from './pedidos/modificar-pedidos.component
 import { CategoriaComponent } from './categoria/categoria.component';
 import { VerificaTokenGuard } from '../services/service.index';
 import { MateriaPrimaComponent } from './materia-prima/materia-prima.component';
+import { EncargueComponent } from './encargue/encargue.component';
 const pagesRoutes:Routes=[
     {path:'',component:PagesComponent,canActivate:[LoginguardGuard,VerificaTokenGuard],
 children:[
@@ -25,7 +26,9 @@ children:[
     {path:'dashboard',component:DashboardComponent,data:{titulo:"Buscar Policia"}},
     {path:'modificar-pedido/:id',component:ModificarPedidosComponent,data:{titulo:"Modificar Pedido"}},
     {path:'categoria',component:CategoriaComponent,data:{titulo:"Productos"}},
-    {path:'materia-prima',component:MateriaPrimaComponent,data:{titulo:"Materia prima"}},
+    {path:'materia-prima',component:MateriaPrimaComponent,data:{titulo:"Compra"}},
+    {path:'encargue',component:EncargueComponent,data:{titulo:"Encargues"}},
+
 
 
 ]}

@@ -1,28 +1,40 @@
-<div *ngIf="detalle" class="row">
+<div *ngIf="compra" class="row">
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <h3 class="card-title">Detalle</h3>
+                <h3 class="card-title">Compras</h3>
                 <table class="table table-hover">
                     <thead>
                         <th>Nombre</th>
-                        <th>Descripción</th>
-                        <th>Precio</th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
+                        <th>Total</th>
+                        <th>Fecha</th>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                        <tr *ngFor="let i of compra">
+                            <td>{{i.empresa}}</td>
+                            <td>{{i.total}}</td>
+                            <td>{{i.fechaCompra| date:'dd/MM/yyyy'}}</td>
+                            <td><button type="button" class="btn btn-secondary" (click)="seleccionar(i)"><i class="fa fa-search"></i></button></td>
                         </tr>
                     </tbody>
                 </table>
+                <br><br>
+                <div *ngIf="lista?.length>0">
+                  <h3 class="card-title">Detalle</h3>
+                  <table class="table table-responsive">
+                    <thead>
+                        <th>Descripcion</th>
+                        <th> Precio</th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let i of lista; let in=index">
+                            <td>{{i.descripcion}}</td>
+                            <td>{{i.precio}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+               
             </div>
         </div>
     </div>

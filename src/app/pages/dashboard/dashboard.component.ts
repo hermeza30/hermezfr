@@ -10,6 +10,7 @@ import { Policia } from 'src/app/models/policia.model';
 })
 export class DashboardComponent implements OnInit {
   public policias:Policia[]=[];
+  public desde:number;
   constructor(public _policiasServices:PoliciaService) { }
 
   ngOnInit(): void {
@@ -28,7 +29,9 @@ busquedaGeneral(key:[string,string]){
     this.cargarPolicias();
   }
 }
-
+setearDesde(event:number){
+  this.desde=event;
+}
 
 
 }

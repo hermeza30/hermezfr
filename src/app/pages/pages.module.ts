@@ -23,9 +23,11 @@ import { ModificarCategoriaComponent } from './categoria/modificar-categoria.com
 import { MateriaPrimaComponent } from './materia-prima/materia-prima.component';
 import { ValidacionDirective } from '../directivas/validacion.directive';
 import { ValidacionSubmitDirective } from '../directivas/validacion-submit.directive';
+import { EncargueComponent } from './encargue/encargue.component';
+import { ModifcarEncargueComponent } from './encargue/modifcar-encargue.component';
 
 @NgModule({
-  declarations: [UsuarioComponent, PoliciaComponent, DashboardComponent,PagesComponent, ModificarPoliciaComponent, VerPoliciaComponent, PedidosComponent, BuscarPedidosComponent, DetallePedidoComponent, ModificarPedidosComponent, CategoriaComponent, ModificarCategoriaComponent, MateriaPrimaComponent,ValidacionDirective,ValidacionSubmitDirective],
+  declarations: [UsuarioComponent, PoliciaComponent, DashboardComponent,PagesComponent, ModificarPoliciaComponent, VerPoliciaComponent, PedidosComponent, BuscarPedidosComponent, DetallePedidoComponent, ModificarPedidosComponent, CategoriaComponent, ModificarCategoriaComponent, MateriaPrimaComponent,ValidacionDirective,ValidacionSubmitDirective, EncargueComponent, ModifcarEncargueComponent],
   imports: [
     CommonModule,
     SharedModule,
@@ -38,6 +40,6 @@ import { ValidacionSubmitDirective } from '../directivas/validacion-submit.direc
     MatMomentDateModule,
     
   ],
-  exports:[UsuarioComponent,PoliciaComponent,DashboardComponent,PagesComponent,ModificarPoliciaComponent,VerPoliciaComponent,PedidosComponent,DetallePedidoComponent,ModificarPedidosComponent,ModificarCategoriaComponent]
+  exports:[UsuarioComponent,PoliciaComponent,DashboardComponent,PagesComponent,ModificarPoliciaComponent,VerPoliciaComponent,PedidosComponent,DetallePedidoComponent,ModificarPedidosComponent,ModificarCategoriaComponent, EncargueComponent]
 })
 export class PagesModule { }
