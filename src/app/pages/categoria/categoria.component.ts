@@ -37,7 +37,6 @@ export class CategoriaComponent implements OnInit {
     this._categorias.eliminarCategoria(id).subscribe(res=>this.cargarCategorias());
   }
   registrar(){
-    console.log(this.form)
     if(this.form.invalid){
       swal("Registrar producto","No se puede registrar producto","warning");
       return;

@@ -16,10 +16,10 @@
                         <tr *ngFor="let e of encargues">
                             <td>{{e.empleado?.nombre}}</td>
                             <td>{{e.categoria?.nombre}}</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>{{e.fechaEncargue|date:'dd/MM/yyyy'}}</td>
+                            <td>{{e.cantidad}}</td>
+                            <td>{{e.pago}}</td>
+                            <td>{{e.fechaDevolucion|date:'dd/MM/yyyy'}}</td>
                         </tr>
                     </tbody>
                 </table>

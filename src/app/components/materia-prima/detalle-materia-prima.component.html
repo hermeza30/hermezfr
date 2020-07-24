@@ -1,8 +1,7 @@
-<div *ngIf="compra" class="row">
+<div *ngIf="compra?.length>0" class="row">
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <h3 class="card-title">Compras</h3>
                 <table class="table table-hover">
                     <thead>
                         <th>Nombre</th>

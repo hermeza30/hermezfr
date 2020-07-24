@@ -51,7 +51,6 @@ export class RegisterComponent implements OnInit {
     );
 
     this._usuarioService.registrarUsuario(usuario).subscribe( (res:Usuario)=>{
-      console.log(res);
       swal("Registrar usuario", "Se registro el usuario: "+res.nombre, "success");
       this.router.navigate(['/login']);
     })

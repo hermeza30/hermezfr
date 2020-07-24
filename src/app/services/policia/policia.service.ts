@@ -14,11 +14,11 @@ export class PoliciaService {
     public _usuarioService: UsuarioService
   ) {}
 
-  public consultarPolicias() {
-    let url = URL_SERVICE + '/policia';
+  public consultarPolicias(desde:number) {
+    let url = URL_SERVICE + '/policia'+'/?desde='+desde;
     return this.http.get(url).pipe(
       map((res: any) => {
-        return res.policia;
+        return res;
       }),
       catchError((err) => {
         swal('Error al registrar policía.', err.error.message, 'error');

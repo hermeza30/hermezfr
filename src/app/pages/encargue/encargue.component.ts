@@ -51,7 +51,7 @@ export class EncargueComponent implements OnInit {
   registrar(){
     if(this.validando()){
         this._encargueService.registrarEncargue(this.prepararEncargue()).subscribe(res=>{
-
+              console.log(res);
         })
     }
   }
@@ -91,9 +91,9 @@ export class EncargueComponent implements OnInit {
       new Empleado(this.form.value.empleado,null,null,null),
       new Categoria(this.form.value.producto,null,null,null,null),
       null,
-      null,
+      new Date(),
       this.form.value.codigo,
-      this.form.value.encargue,
+      this.form.value.cantidad,
       this.form.value.pago
     );
     return encargue;

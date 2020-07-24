@@ -13,6 +13,7 @@ export class EmpleadoService {
 
   obtenerEmpleado(){
     let url=URL_SERVICE+'/empleado';
+    url+='/?token='+this._usuarioService.token;
     return this.http.get(url).pipe(
     map((res:any)=>{
       return res.empleado

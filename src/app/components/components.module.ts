@@ -10,14 +10,15 @@ import { AgregarClienteComponent } from './agregar-cliente/agregar-cliente/agreg
 import { AgregarProductoComponent } from './agregar-producto/agregar-producto/agregar-producto.component';
 import { DetalleMateriaPrimaComponent } from './materia-prima/detalle-materia-prima.component';
 import { AgregarEncargueComponent } from './agregar-encargue/agregar-encargue.component';
+import { ModalComponent } from './modal/modal.component';
 
 
 
 @NgModule({
-  declarations: [PersonaComponent, BusquedaComponent,GaribaldinaComponent, BodyComponent, AgregarClienteComponent, AgregarProductoComponent, DetalleMateriaPrimaComponent,DetalleMateriaPrimaComponent, AgregarEncargueComponent],
+  declarations: [PersonaComponent, BusquedaComponent,GaribaldinaComponent, BodyComponent, AgregarClienteComponent, AgregarProductoComponent, DetalleMateriaPrimaComponent,DetalleMateriaPrimaComponent, AgregarEncargueComponent, ModalComponent],
   imports: [
     CommonModule,FormsModule,ReactiveFormsModule,RouterModule 
   ],
-  exports:[PersonaComponent,BusquedaComponent,GaribaldinaComponent,BodyComponent,AgregarProductoComponent,AgregarClienteComponent,DetalleMateriaPrimaComponent, AgregarEncargueComponent]
+  exports:[PersonaComponent,BusquedaComponent,GaribaldinaComponent,BodyComponent,AgregarProductoComponent,AgregarClienteComponent,DetalleMateriaPrimaComponent, AgregarEncargueComponent,ModalComponent]
 })
 export class ComponentsModule { }

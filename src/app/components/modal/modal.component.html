@@ -1,0 +1,58 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+    Policia
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="exampleModalLongTitle"><strong>Medidas</strong> </h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="row col-12">
+                <div class="col-3">
+                  <h4 class="row"><strong>Cliente</strong></h4>
+                  <div class="row"><label class="control-label text-right">Nombre: </label><p>{{ policia.nombre }}</p></div> 
+                  <div class="row"><label class="control-label text-right">Teléfono: </label><p>{{ policia.telefono }}</p></div> 
+                  <div class="row"><label class="control-label text-right">Jerarquía: </label><p>{{ policia.jerarquia }}</p></div> 
+                </div>
+                <div class="col-4">
+                  <h4 class="row"><strong>Torso</strong></h4>
+                  <div class="row"><label class="control-label text-right">Espalda: </label><p>{{ policia.espalda }}</p></div> 
+                  <div class="row"><label class="control-label text-right">Pecho: </label><p>{{ policia.pecho }}</p></div> 
+                  <div class="row"><label class="control-label text-right">Largo Manga: </label><p>{{ policia.largomanga }}</p></div> 
+                  <div class="row"><label class="control-label text-right">Cuello: </label><p>{{ policia.cuello }}</p></div> 
+                  <div class="row"><label class="control-label text-right">Cintura panza: </label><p>{{ policia.cinturapanza }}</p></div> 
+                  <div class="row"><label class="control-label text-right">Largo torso: </label><p>{{ policia.largotorso }}</p></div> 
+                </div>
+                <div class="col-4">
+                  <h4 class="row"><strong>Pierna</strong></h4>
+                  <div class="row"><label class="control-label text-right">Cintura: </label><p>{{ policia.cintura }}</p></div> 
+                  <div class="row"><label class="control-label text-right">Cadera: </label><p>{{ policia.cadera }}</p></div> 
+                  <div class="row"><label class="control-label text-right">Ancho pierna: </label><p>{{ policia.anchopierna }}</p></div> 
+                  <div class="row"><label class="control-label text-right">Tiro: </label><p>{{ policia.tiro }}</p></div> 
+                  <div class="row"><label class="control-label text-right">Largo pierna: </label><p>{{ policia.largopierna }}</p></div> 
+                  <div class="row"><label class="control-label text-right">Altura rodilla: </label><p>{{ policia.alturarodilla }}</p></div> 
+                  <div class="row"><label class="control-label text-right">Pantorrilla: </label><p>{{ policia.pantorrilla }}</p></div> 
+                </div>
+              
+              </div>
+              <div class="row col-12">
+                <div class="col-3">
+                    <h4 class="row"><strong>Observación</strong></h4>
+                    <label class="control-label text-right"> </label><p>{{ policia.observacion }}</p>
+                  </div>
+              </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>

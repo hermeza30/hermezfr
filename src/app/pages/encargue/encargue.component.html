@@ -4,31 +4,33 @@
             <h3 class="card-title"></h3>
 
                 <form [formGroup]="form" (ngSubmit)="registrar()">
-                    <div class="form-group col-4">
-                        <label class="control-label">Empleado</label>
-                        <select  class="form-control" formControlName="empleado" name="empleado">
-                            <option value="">Seleccionar</option>  
-                            <option *ngFor="let e of comboEmpleado" [ngValue]="e._id">{{e.nombre}}</option>  
-                        </select>
-                    </div>
-                    <div class="form-group col-4">
-                        <label class="control-label">Producto</label>
-                        <select  class="form-control" formControlName="producto" name="producto">
-                            <option value="">Seleccionar</option>  
-                            <option *ngFor="let c of comboCategoria" [ngValue]="c._id">{{c.nombre}}</option>  
-                        </select>
-                    </div>
-                    <div class="form-group col-4">
-                        <label class="control-label">Código</label>
-                        <input class="form-control" type="text" formControlName="codigo" id="codigo" appValidacion validacionid="codigo">
-                    </div>
-                    <div class="form-group col-4">
-                        <label class="control-label">Cantidad</label>
-                        <input class="form-control" type="number" formControlName="cantidad" appValidacion validacionid="cantidad">
-                    </div>
-                    <div class="form-group col-4">
-                        <label class="control-label">Pago</label>
-                        <input class="form-control" type="number" formControlName="pago" appValidacion validacionid="pago">
+                    <div class="form-row">
+                        <div class="form-group col-4">
+                            <label class="control-label">Empleado</label>
+                            <select  class="form-control" formControlName="empleado" name="empleado">
+                                <option value="">Seleccionar</option>  
+                                <option *ngFor="let e of comboEmpleado" [ngValue]="e._id">{{e.nombre}}</option>  
+                            </select>
+                        </div>
+                        <div class="form-group col-4">
+                            <label class="control-label">Producto</label>
+                            <select  class="form-control" formControlName="producto" name="producto">
+                                <option value="">Seleccionar</option>  
+                                <option *ngFor="let c of comboCategoria" [ngValue]="c._id">{{c.nombre}}</option>  
+                            </select>
+                        </div>
+                        <div class="form-group col-4">
+                            <label class="control-label">Código</label>
+                            <input class="form-control" type="text" formControlName="codigo" id="codigo" appValidacion validacionid="codigo">
+                        </div>
+                        <div class="form-group col-4">
+                            <label class="control-label">Cantidad</label>
+                            <input class="form-control" type="number" formControlName="cantidad" id="cantidad" appValidacion validacionid="cantidad">
+                        </div>
+                        <div class="form-group col-4">
+                            <label class="control-label">Pago</label>
+                            <input class="form-control" type="number" formControlName="pago" id="pago" appValidacion validacionid="pago">
+                        </div>
                     </div>
                     <div class="float-right">
                         <button type="submit" class="btn btn-success" appValidacionSubmit [validationControl]="form">Guardar</button>

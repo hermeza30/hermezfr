@@ -5,7 +5,7 @@ export class Encargue {
   public empleado: Empleado;
   public categoria: Categoria;
   public fechaDevolucion: Date;
-  public fechaEntrega: Date;
+  public fechaEncargue: Date;
   public codigo: string;
   public cantidad: number;
   public pago: number;
@@ -14,7 +14,7 @@ export class Encargue {
     _empleado: Empleado,
     _categoria: Categoria,
     _fechaDevolucion: Date,
-    _fechaEntrega: Date,
+    _fechaEncargue: Date,
     _codigo: string,
     _cantidad: number,
     _pago: number
@@ -23,7 +23,7 @@ export class Encargue {
     this.empleado = _empleado;
     this.categoria = _categoria;
     this.fechaDevolucion = _fechaDevolucion;
-    this.fechaEntrega = _fechaEntrega;
+    this.fechaEncargue = _fechaEncargue;
     this.codigo = _codigo;
     this.cantidad = _cantidad;
     this.pago = _pago;

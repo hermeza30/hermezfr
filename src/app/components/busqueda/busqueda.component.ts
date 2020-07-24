@@ -2,6 +2,8 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { Policia } from '../../models/policia.model';
 import { PoliciaService } from '../../services/policia/policia.service';
+import { Subscription } from 'rxjs';
+import { ComunicationComponentsService } from '../../services/comunicationComponents/comunication-components.service';
 
 @Component({
   selector: 'app-busqueda',
@@ -10,14 +12,17 @@ import { PoliciaService } from '../../services/policia/policia.service';
 })
 export class BusquedaComponent implements OnInit {
   @Input('policias') policias: Policia[];
-  @Output('cargar') cargarbusqueda: EventEmitter<boolean> = new EventEmitter();
+  @Output('cargar') cargarbusqueda: EventEmitter<[boolean,number]> = new EventEmitter();
   @Output('buscar') busqueda: EventEmitter<
     [string, string]
   > = new EventEmitter();
   desde: number = 0;
   totalRegistros: number = 0;
-  constructor(public router: Router, public _policiaService: PoliciaService) {
-   
+  public suscripcion:Subscription;
+  constructor(public router: Router, public _policiaService: PoliciaService, public _comunicacion:ComunicationComponentsService) {
+    this._comunicacion.llamarTotalasObs.subscribe(valor=>{
+      this.totalRegistros=valor;
+    });
   }
 
   ngOnInit(): void {}
@@ -26,7 +31,7 @@ export class BusquedaComponent implements OnInit {
   }
   eliminar(id: string) {
     this._policiaService.eliminarPolicia(id).subscribe((res) => {
-      this.cargarbusqueda.emit(true);
+      this.cargarbusqueda.emit([true,null]);
     });
   }
   buscar(key: any, tipo: string) {
@@ -34,7 +39,6 @@ export class BusquedaComponent implements OnInit {
   }
   cambiarDesde(valor: number) {
     let desde = this.desde + valor;
-
     if (desde >= this.totalRegistros) {
       return;
     }
@@ -44,6 +48,6 @@ export class BusquedaComponent implements OnInit {
     }
 
     this.desde += valor;
-    this.cargarbusqueda.emit(true);
+    this.cargarbusqueda.emit([true,this.desde]);
   }
 }

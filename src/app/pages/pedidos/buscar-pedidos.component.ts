@@ -21,6 +21,7 @@ export class BuscarPedidosComponent implements OnInit {
   desde: number = 0;
   totalRegistros: number = 0;
   public totalacobrar:number=0;
+  public estadoId:number=1;
   constructor(
     public _pedidoService: PedidosService,
     public _estadoService: EstadoPedidoService,
@@ -40,9 +41,11 @@ export class BuscarPedidosComponent implements OnInit {
     this.estados = this._estadoService.estadoPedidos();
   }
   cargarPedidos() {
-    this.busqueda('estado', 1);
+    this.busqueda('estado', this.estadoId);
   }
   cambiandoBusqueda(event: any, tabla: string) {
+    this.desde=0;
+    this.estadoId=event;
     if (event.length <= 0) {
       this.cargarPedidos();
       return;
@@ -89,6 +92,5 @@ export class BuscarPedidosComponent implements OnInit {
    
   }
   eliminar(id:string){
-    console.log(id);
   }
 }
