@@ -100,4 +100,8 @@ export class UsuarioService {
       this.usuario = null;
     }
   }
+  obtenerUsuarioLogueado(){
+    return this.usuario;
+  }
+  
 }

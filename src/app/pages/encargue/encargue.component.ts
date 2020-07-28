@@ -51,8 +51,7 @@ export class EncargueComponent implements OnInit {
   registrar(){
     if(this.validando()){
         this._encargueService.registrarEncargue(this.prepararEncargue()).subscribe(res=>{
-              console.log(res);
-        })
+        });
     }
   }
   consultarEncargues(){

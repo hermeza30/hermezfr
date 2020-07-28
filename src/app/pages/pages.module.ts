@@ -17,17 +17,25 @@ import { BuscarPedidosComponent } from './pedidos/buscar-pedidos.component';
 import { DetallePedidoComponent } from './detalle-pedido/detalle-pedido.component';
 import { ModificarPedidosComponent } from './pedidos/modificar-pedidos.component';
 import { CategoriaComponent } from './categoria/categoria.component';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { ModificarCategoriaComponent } from './categoria/modificar-categoria.component';
 import { MateriaPrimaComponent } from './materia-prima/materia-prima.component';
+import { ModifcarEncargueComponent } from './encargue/modifcar-encargue.component';
 import { ValidacionDirective } from '../directivas/validacion.directive';
 import { ValidacionSubmitDirective } from '../directivas/validacion-submit.directive';
 import { EncargueComponent } from './encargue/encargue.component';
-import { ModifcarEncargueComponent } from './encargue/modifcar-encargue.component';
+
+///Material
+import { PerfilComponent } from './perfil/perfil.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatCardModule} from '@angular/material/card';
+import {MatInputModule} from '@angular/material/input';
+import { PipesModule } from '../pipes/pipes.module';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
-  declarations: [UsuarioComponent, PoliciaComponent, DashboardComponent,PagesComponent, ModificarPoliciaComponent, VerPoliciaComponent, PedidosComponent, BuscarPedidosComponent, DetallePedidoComponent, ModificarPedidosComponent, CategoriaComponent, ModificarCategoriaComponent, MateriaPrimaComponent,ValidacionDirective,ValidacionSubmitDirective, EncargueComponent, ModifcarEncargueComponent],
+  declarations: [UsuarioComponent, PoliciaComponent, DashboardComponent,PagesComponent, ModificarPoliciaComponent, VerPoliciaComponent, PedidosComponent, BuscarPedidosComponent, DetallePedidoComponent, ModificarPedidosComponent, CategoriaComponent, ModificarCategoriaComponent, MateriaPrimaComponent,ValidacionDirective,ValidacionSubmitDirective, EncargueComponent, ModifcarEncargueComponent,PerfilComponent],
   imports: [
     CommonModule,
     SharedModule,
@@ -38,8 +46,14 @@ import { ModifcarEncargueComponent } from './encargue/modifcar-encargue.componen
     HttpClientModule,
     MatDatepickerModule,
     MatMomentDateModule,
+    MatFormFieldModule,MatCardModule,
+    MatInputModule,
+    PipesModule,
+    MatButtonModule
+
     
   ],
-  exports:[UsuarioComponent,PoliciaComponent,DashboardComponent,PagesComponent,ModificarPoliciaComponent,VerPoliciaComponent,PedidosComponent,DetallePedidoComponent,ModificarPedidosComponent,ModificarCategoriaComponent, EncargueComponent]
+  exports:[UsuarioComponent,PoliciaComponent,DashboardComponent,PagesComponent,ModificarPoliciaComponent,VerPoliciaComponent,PedidosComponent,DetallePedidoComponent,ModificarPedidosComponent,ModificarCategoriaComponent, EncargueComponent,PerfilComponent],
+
 })
 export class PagesModule { }

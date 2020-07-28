@@ -1,0 +1,53 @@
+<form [formGroup]="form">
+<div class="row">
+    <div class="col">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <mat-card-title>Usuario</mat-card-title>
+          <mat-card-subtitle>{{ _usuarioService.usuario.nombre }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content> 
+         
+            <mat-form-field appearance="outline">
+              <mat-label>Usuario</mat-label>
+              <span matPrefix class="material-icons" style="font-size: 18px;" >account_circle &nbsp; 
+              </span>
+              <input matInput formControlName="nombre" placeholder="Nombre">
+            </mat-form-field>
+            <mat-form-field  appearance="outline">
+              <mat-label>Email</mat-label>
+              <span matPrefix class="material-icons" style="font-size: 18px;">email &nbsp;
+                </span>
+              <input matInput formControlName="email" placeholder="usuario@gmail.com">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Descripcion</mat-label>
+              <textarea matInput formControlName="descripcion" placeholder="Escriba su descripción"></textarea>
+            </mat-form-field>
+
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button color="primary" (click)="actualizar()">Actualizar</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+
+    <div class="col">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <mat-card-title>Imagen</mat-card-title>
+          <mat-card-subtitle>{{usuario.nombre}}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image [src]="usuario.img|imagen" alt="foto de usuario">
+        <mat-card-content>
+          <p>
+          {{usuario.descripcion}}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button  mat-raised-button color="primary" (click)="cambiarFoto()">Cambiar Foto</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>  
+  </div>
+</form>  

@@ -14,6 +14,7 @@ import { CategoriaComponent } from './categoria/categoria.component';
 import { VerificaTokenGuard } from '../services/service.index';
 import { MateriaPrimaComponent } from './materia-prima/materia-prima.component';
 import { EncargueComponent } from './encargue/encargue.component';
+import { PerfilComponent } from './perfil/perfil.component';
 const pagesRoutes:Routes=[
     {path:'',component:PagesComponent,canActivate:[LoginguardGuard,VerificaTokenGuard],
 children:[
@@ -28,6 +29,8 @@ children:[
     {path:'categoria',component:CategoriaComponent,data:{titulo:"Productos"}},
     {path:'materia-prima',component:MateriaPrimaComponent,data:{titulo:"Compra"}},
     {path:'encargue',component:EncargueComponent,data:{titulo:"Encargues"}},
+    {path:'perfil',component:PerfilComponent,data:{titulo:"Perfil"}},
+
 
 
 
