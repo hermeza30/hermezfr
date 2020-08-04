@@ -26,9 +26,7 @@
             </mat-form-field>
 
         </mat-card-content>
-        <mat-card-actions>
-          <button mat-raised-button color="primary" (click)="actualizar()">Actualizar</button>
-        </mat-card-actions>
+
       </mat-card>
     </div>
 
@@ -38,14 +36,22 @@
           <mat-card-title>Imagen</mat-card-title>
           <mat-card-subtitle>{{usuario.nombre}}</mat-card-subtitle>
         </mat-card-header>
-        <img mat-card-image [src]="usuario.img|imagen" alt="foto de usuario">
+         <img *ngIf="!imagenTemp" mat-card-image [src]="usuario.img|imagen" alt="foto de usuario">
+        <img *ngIf="imagenTemp"  mat-card-image [src]="imagenTemp" alt="foto de usuario">
+
         <mat-card-content>
-          <p>
+          <p disabled>
           {{usuario.descripcion}}
           </p>
         </mat-card-content>
         <mat-card-actions>
-          <button  mat-raised-button color="primary" (click)="cambiarFoto()">Cambiar Foto</button>
+
+          <div class="form-group">
+            <input (change)="seleccionarFoto($event.target.files[0])" type="file">
+          </div>
+          <div class="form-group">
+            <button  mat-raised-button color="primary" (click)="actualizar()" [disabled]="!imagen">Actualizar</button>
+          </div>
         </mat-card-actions>
       </mat-card>
     </div>  

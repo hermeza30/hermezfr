@@ -35,7 +35,8 @@ export class EncargueComponent implements OnInit {
       producto: new FormControl('',Validators.required),
       codigo:new FormControl('',Validators.required),
       cantidad:new FormControl(0,Validators.required),
-      pago:new FormControl(0,Validators.required)
+      pago:new FormControl(0,Validators.required),
+      descripcion:new FormControl('')
     });
   }
 
@@ -48,16 +49,20 @@ export class EncargueComponent implements OnInit {
   getCantidad(){
     return this.form.get('cantidad') as FormControl;
   }
+  getDescripcion(){
+    return this.form.get('descripcion') as FormControl;
+  }
   registrar(){
     if(this.validando()){
         this._encargueService.registrarEncargue(this.prepararEncargue()).subscribe(res=>{
+          this.consultarEncargues();
         });
     }
   }
   consultarEncargues(){
     this._encargueService.consultarEncargue().subscribe((res)=>{
-      console.log(res);
       this.encargues=res;
+      console.log('CONSULTAR',res);
     });
   }
   validando():boolean{
@@ -93,7 +98,8 @@ export class EncargueComponent implements OnInit {
       new Date(),
       this.form.value.codigo,
       this.form.value.cantidad,
-      this.form.value.pago
+      this.form.value.pago,
+      this.form.value.descripcion
     );
     return encargue;
   }

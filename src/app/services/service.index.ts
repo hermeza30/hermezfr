@@ -1,3 +1,4 @@
+export { SubirArchivoService } from './imagen/subir-archivo.service';
 export { EmpleadoService } from './empleados/empleado.service';
 export { EncargueService } from './encargues/encargue.service';
 export { CompraService } from './compras/compra.service';

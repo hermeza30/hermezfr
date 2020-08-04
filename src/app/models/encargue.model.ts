@@ -9,6 +9,7 @@ export class Encargue {
   public codigo: string;
   public cantidad: number;
   public pago: number;
+  public descripcion:string;
   constructor(
     _id: string,
     _empleado: Empleado,
@@ -17,7 +18,8 @@ export class Encargue {
     _fechaEncargue: Date,
     _codigo: string,
     _cantidad: number,
-    _pago: number
+    _pago: number,
+    _descripcion:string
   ) {
     this._id = _id;
     this.empleado = _empleado;
@@ -27,5 +29,6 @@ export class Encargue {
     this.codigo = _codigo;
     this.cantidad = _cantidad;
     this.pago = _pago;
+    this.descripcion=_descripcion;
   }
 }

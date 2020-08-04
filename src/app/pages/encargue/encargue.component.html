@@ -32,6 +32,14 @@
                             <input class="form-control" type="number" formControlName="pago" id="pago" appValidacion validacionid="pago">
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="control-label">Observación</label>
+                                <input type="text-area" class="form-control" formControlName="descripcion">
+                            </div>
+                        </div>
+                    </div>
                     <div class="float-right">
                         <button type="submit" class="btn btn-success" appValidacionSubmit [validationControl]="form">Guardar</button>
                     </div>
@@ -41,5 +49,5 @@
 </div>
 
 <div *ngIf="encargues?.length>0">
-    <app-agregar-encargue [encargues]="encargues"></app-agregar-encargue>
+    <app-agregar-encargue [encargues]="encargues" (cargarEncargue)="consultarEncargues()"></app-agregar-encargue>
 </div>

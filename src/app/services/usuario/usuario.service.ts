@@ -5,6 +5,7 @@ import { URL_SERVICE } from '../../config/config';
 import { map, catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { Router } from '@angular/router';
+import { SubirArchivoService } from '../service.index';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +14,7 @@ export class UsuarioService {
   public token: string = '';
   public usuario: Usuario;
   
-  constructor(public http: HttpClient, public router: Router) {
+  constructor(public http: HttpClient, public router: Router, public _subirArchivo:SubirArchivoService) {
     this.cargarStorage();
   }
 
@@ -103,5 +104,27 @@ export class UsuarioService {
   obtenerUsuarioLogueado(){
     return this.usuario;
   }
-  
+  actualizarPerfil(usuario:Usuario){
+    let url=URL_SERVICE+'/usuario'+'/'+usuario._id+'/?token='+this.token
+   return this.http.put(url,usuario).pipe(
+      map((res:any)=>{
+          return res.usuario;
+      }),
+      catchError(err=>throwError(err))
+    );
+  }
+  actualizarImagen(tipo:string,id:string,archivo:File){
+    this._subirArchivo
+    .subirArchivo(archivo, 'usuarios', this.usuario._id)
+    .subscribe((res: any) => {
+      let objs=JSON.parse(res);
+      this.usuario.img=objs.img;
+      swal("Imagen actualizada",this.usuario.nombre,"success");
+      this.guardarStorage(this.usuario._id,this.token,this.usuario);
+    }),
+    (err) => {
+      swal('Cambiar Imagen', 'Error al cambiar imagen ' + err, 'error');
+    };
+  }
+
 }
